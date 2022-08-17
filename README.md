@@ -6,8 +6,15 @@ This is all very much WIP, so if you have any comments or ideas, or want to cont
 
 ## Demo
 
+View a live demo of the site hosted on Vercel!
+https://eui-event.vercel.app/
+
 ## Running Locally
 
-## Forking and Making For Your Own Event
+## How To Use For Your Own Event
+
+- Forking
+- Adjusting
+- Serving it (on Vercel)
 
 ## Contributing Guidlines

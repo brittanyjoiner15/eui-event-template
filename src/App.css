@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+.xMargin {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.maxWidth {
+    max-width: 100px;
+}

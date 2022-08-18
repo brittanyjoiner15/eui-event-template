@@ -12,7 +12,7 @@ jobs:
         uses: flowwer-dev/pull-request-stats@master
         with:
           token: process.env.REACT_GITHUB_TOKEN
-          organization: 'piedpiper'
+          organization: 'brittanyjoiner15'
           period: 7
           charts: true
           disable-links: true

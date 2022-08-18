@@ -1,0 +1,19 @@
+name: Pull Request Stats
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run pull request stats
+        uses: flowwer-dev/pull-request-stats@master
+        with:
+          token: process.env.REACT_GITHUB_TOKEN
+          organization: 'piedpiper'
+          period: 7
+          charts: true
+          disable-links: true
+          sort-by: 'COMMENTS'

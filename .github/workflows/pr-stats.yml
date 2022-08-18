@@ -11,7 +11,7 @@ jobs:
       - name: Run pull request stats
         uses: flowwer-dev/pull-request-stats@master
         with:
-          token: process.env.REACT_GITHUB_TOKEN
+          token: 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
           organization: 'brittanyjoiner15'
           period: 7
           charts: true

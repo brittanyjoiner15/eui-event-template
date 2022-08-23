@@ -26,7 +26,6 @@ import SpeakersPanel from "./panels/SpeakersPanel";
 import TalksPanel from "./panels/TalksPanel";
 import TalksTBDPanel from "./panels/TalksTBDPanel";
 import { makeRainbowText } from "./RainbowLetters";
-import mixpanel from "mixpanel-browser";
 
 function MainPage() {
   const [selectedTab, setSelectedTab] = useState("event");
@@ -36,7 +35,6 @@ function MainPage() {
 
   const onSelectedTabChanged = (id) => {
     setSelectedTab(id);
-    mixpanel.track(`Visited tab ${id}`);
   };
 
   const showSelectedContent = (tab) => {

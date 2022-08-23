@@ -1,7 +1,6 @@
 import { EuiButton, EuiEmptyPrompt } from "@elastic/eui";
 import React from "react";
 import { rainbowCluster } from "../../data/ImageRefs";
-import mixpanel from "mixpanel-browser";
 
 function TalksTBDPanel() {
   const body = (
@@ -23,9 +22,6 @@ function TalksTBDPanel() {
             fill
             href="https://forms.gle/yGAmKA8kTBJKwQSp6"
             target={"_blank"}
-            onClick={() => {
-              mixpanel.track(`Clicked submit talk`);
-            }}
           >
             Submit a talk
           </EuiButton>

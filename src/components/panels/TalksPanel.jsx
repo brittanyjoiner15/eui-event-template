@@ -11,7 +11,8 @@ import {
 } from "@elastic/eui";
 import React from "react";
 import { talks } from "../../data/talks";
-const moment = require("moment-timezone");
+import { renderGenreTags } from "../../utilities/genreTags";
+import { showTime } from "../../utilities/showLocalTime";
 
 export default class TalksPanel extends React.Component {
   constructor(props) {
@@ -19,54 +20,13 @@ export default class TalksPanel extends React.Component {
 
     this.state = {
       showEst: false,
-      sortField: "Session",
-      sortDirection: "asc",
     };
   }
-
-  createSortingObject() {
-    return {
-      sort: {
-        field: this.state.sortField,
-        direction: this.state.sortDirection,
-      },
-    };
-  }
-
-  getLocalTimezone = () => {
-    return Intl.DateTimeFormat().resolvedOptions().timeZone;
-  };
-
-  showTime = (timestamp) => {
-    let localTime = moment.tz(timestamp, this.getLocalTimezone());
-    let estTime = moment.tz(timestamp, "America/New_York");
-
-    return this.state.showEst
-      ? estTime.format("h:mm a z")
-      : localTime.format("h:mm a z");
-  };
-
-  renderGenreTags = (tagName) => {
-    let color = "";
-    switch (tagName) {
-      case "How To":
-        return (color = "primary");
-      case "Elastic":
-        return (color = "success");
-      case "Self Care":
-        return (color = "accent");
-      case "LGBTQIA+":
-        return (color = "warning");
-      default:
-        return (color = "default");
-    }
-  };
 
   columns = [
     {
       field: "sessionDetails",
       name: "Session",
-      sortable: true,
       render: (sessionDetails) => (
         <EuiBadge
           color={sessionDetails.date === "Sept 8th" ? "primary" : "success"}
@@ -78,28 +38,24 @@ export default class TalksPanel extends React.Component {
     {
       field: "sessionDetails",
       name: "Time",
-      sortable: true,
       render: (sessionDetails) => (
         <>
           <EuiIcon type="clock" />
-          {this.showTime(sessionDetails.timestamp)}
+          {showTime(sessionDetails.timestamp, this.state.showEst)}
         </>
       ),
     },
     {
       field: "title",
       name: "Title",
-      sortable: true,
     },
     {
       field: "description",
       name: "Description",
-      sortable: true,
     },
     {
       field: "speaker",
       name: "Speaker",
-      sortable: true,
       render: (speaker) => (
         <>
           <EuiAvatar
@@ -115,9 +71,8 @@ export default class TalksPanel extends React.Component {
     {
       field: "genre",
       name: "Genre",
-      sortable: true,
       render: (genre) => (
-        <EuiBadge color={this.renderGenreTags(genre)}>{genre}</EuiBadge>
+        <EuiBadge color={renderGenreTags(genre)}>{genre}</EuiBadge>
       ),
     },
     {
@@ -156,6 +111,14 @@ export default class TalksPanel extends React.Component {
     );
   }
 
+  renderTalkTable() {
+    return (
+      <EuiFlexItem>
+        <EuiBasicTable items={talks} columns={this.columns} hasActions />
+      </EuiFlexItem>
+    );
+  }
+
   render() {
     return (
       <>
@@ -167,18 +130,7 @@ export default class TalksPanel extends React.Component {
           <EuiFlexItem grow={false}>{this.renderShowEstButton()}</EuiFlexItem>
         </EuiFlexGroup>
         <EuiFlexGroup className="xMargin">
-          <EuiFlexItem>
-            <EuiBasicTable
-              items={talks}
-              columns={this.columns}
-              sorting={this.createSortingObject()}
-              hasActions
-              onChange={(e) => {
-                this.setState({ sortField: e.sort.field });
-                this.setState({ sortDirection: e.sort.direction });
-              }}
-            />
-          </EuiFlexItem>
+          {this.renderTalkTable()}
         </EuiFlexGroup>
       </>
     );

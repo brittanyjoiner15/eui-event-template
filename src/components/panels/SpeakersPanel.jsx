@@ -10,7 +10,42 @@ import React from "react";
 import { speakers } from "../../data/speakers";
 
 export default class SpeakersPanel extends React.Component {
-  renderAllSpeakers = () => {
+  renderAllSpeakers() {
+    return (
+      <>
+        {speakers.map((speaker) => {
+          return (
+            <EuiFlexItem>
+              <EuiCard
+                aria-label={speaker.name}
+                image={<EuiImage size="m" src={speaker.avatar}></EuiImage>}
+                footer={speaker.shortBio}
+                description={
+                  <>
+                    <EuiText color="success">
+                      <strong>{speaker.title}</strong>
+                    </EuiText>
+                    <EuiBadge color="primary" iconType="branch">
+                      {speaker.team}
+                    </EuiBadge>
+                    <EuiBadge color="warning" iconType="globe">
+                      {speaker.basedIn}
+                    </EuiBadge>
+                    <EuiBadge color="success" iconType="faceHappy">
+                      {speaker.pronouns}
+                    </EuiBadge>
+                  </>
+                }
+                title={speaker.name}
+              />
+            </EuiFlexItem>
+          );
+        })}
+      </>
+    );
+  }
+
+  render() {
     return (
       <>
         <EuiFlexGrid
@@ -19,40 +54,9 @@ export default class SpeakersPanel extends React.Component {
           gutterSize="l"
           className="xMargin"
         >
-          {speakers.map((speaker) => {
-            return (
-              <EuiFlexItem>
-                <EuiCard
-                  image={<EuiImage size="m" src={speaker.avatar}></EuiImage>}
-                  aria-label={speaker.name}
-                  title={speaker.name}
-                  description={
-                    <>
-                      <EuiText color="success">
-                        <strong>{speaker.title}</strong>
-                      </EuiText>
-                      <EuiBadge color="primary" iconType="branch">
-                        {speaker.team}
-                      </EuiBadge>
-                      <EuiBadge color="warning" iconType="globe">
-                        {speaker.basedIn}
-                      </EuiBadge>
-                      <EuiBadge color="success" iconType="faceHappy">
-                        {speaker.pronouns}
-                      </EuiBadge>
-                    </>
-                  }
-                  footer={speaker.shortBio}
-                />
-              </EuiFlexItem>
-            );
-          })}
+          {this.renderAllSpeakers()}
         </EuiFlexGrid>
       </>
     );
-  };
-
-  render() {
-    return <>{this.renderAllSpeakers()}</>;
   }
 }

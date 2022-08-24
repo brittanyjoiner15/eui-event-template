@@ -1,6 +1,6 @@
 import { EuiButton, EuiEmptyPrompt } from "@elastic/eui";
 import React from "react";
-import { rainbowCluster } from "../../data/ImageRefs";
+import { rainbowCluster } from "../../data/consts";
 
 function TalksTBDPanel() {
   const body = (

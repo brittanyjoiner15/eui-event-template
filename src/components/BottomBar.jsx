@@ -21,24 +21,14 @@ export default class Bottombar extends React.Component {
             </EuiFlexItem>
 
             <EuiFlexItem grow={false}>
-              <EuiButton
-                color="success"
-                fill
-                href="https://groups.google.com/a/elastic.co/g/rainbowstack"
-                target={"_blank"}
-              >
-                Join the rainbow-stack@ group
+              <EuiButton color="success" fill href="#" target={"_blank"}>
+                Sign up for updates
               </EuiButton>
             </EuiFlexItem>
 
             <EuiFlexItem grow={false}>
-              <EuiButton
-                color="primary"
-                fill
-                href="https://elastic.slack.com/archives/CGQUUPD8F"
-                target={"_blank"}
-              >
-                Join the #erg-rainbow-stack channel
+              <EuiButton color="primary" fill href="#" target={"_blank"}>
+                Join the slack group
               </EuiButton>
             </EuiFlexItem>
           </EuiFlexGroup>

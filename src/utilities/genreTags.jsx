@@ -1,13 +1,13 @@
 export const renderGenreTags = (tagName) => {
   let color = "";
   switch (tagName) {
-    case "How To":
+    case "Business":
       return (color = "primary");
-    case "Elastic":
+    case "Arts":
       return (color = "success");
-    case "Self Care":
+    case "Education":
       return (color = "accent");
-    case "LGBTQIA+":
+    case "Off Topic":
       return (color = "warning");
     default:
       return (color = "default");

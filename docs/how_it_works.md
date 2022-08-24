@@ -31,12 +31,10 @@
 ## Notable functions
 
 - Add Calendar Buttons
-  - Creates buttons for claendar
+  - Creates buttons with links to add to calendar
 - Rainbow letters
+  - Takes an array of letters and applies colors to each letter then brings them together for rainbow effect
 - Convert to local timezone
-
-## Data
-
-- Speaker data (JSON file)
-  - Format:
-- Talk dat
+  - Convert timestamps into a user's local timezone
+- Find speaker
+  - Return details about a speaker by looking up their name

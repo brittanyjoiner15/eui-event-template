@@ -25,23 +25,21 @@ export default class TalksPanel extends React.Component {
 
   columns = [
     {
-      field: "sessionDetails",
+      field: "sessionDate",
       name: "Session",
-      render: (sessionDetails) => (
-        <EuiBadge
-          color={sessionDetails.date === "Sept 8th" ? "primary" : "success"}
-        >
-          {sessionDetails.date}
+      render: (sessionDate) => (
+        <EuiBadge color={sessionDate === "Sept 8th" ? "primary" : "success"}>
+          {sessionDate}
         </EuiBadge>
       ),
     },
     {
-      field: "sessionDetails",
+      field: "sessionTime",
       name: "Time",
-      render: (sessionDetails) => (
+      render: (sessionTime) => (
         <>
           <EuiIcon type="clock" />
-          {showTime(sessionDetails.timestamp, this.state.showEst)}
+          {showTime(sessionTime, this.state.showEst)}
         </>
       ),
     },
@@ -84,7 +82,10 @@ export default class TalksPanel extends React.Component {
           type: "icon",
           icon: "calendar",
           onClick: (e) => {
-            window.open(e.sessionDetails.calendarLink, "_blank");
+            window.open(
+              `${e.sessionDate === "Sept 8th" ? "#" : "?"}`,
+              "_blank"
+            );
           },
         },
       ],

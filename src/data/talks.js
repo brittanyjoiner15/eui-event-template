@@ -10,7 +10,7 @@ export const talks = [
     sessionTime: "2022-09-08T20:00:00.000Z",
     title: "Making Color Coding Cooler",
     description:
-      "We think that colors and organization isn't cool. Well, it's actally the coolest thing that ever existed.",
+      "We think that colors and organization isn't cool. Well, it's actually the coolest thing that ever existed.",
     genre: "Business",
     speaker: findSpeaker("Leslie Knope"),
   },

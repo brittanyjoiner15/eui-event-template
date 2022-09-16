@@ -39,6 +39,10 @@ If it's a feature...
 
 If you find an open issue you'd like to work on, add a comment, and I'll assign it to you. Once you're assigned, you can start developing!
 
+**!! Important!!** Please don't request an issue then ghost me! 
+
+If you comment on an issue requesting it, I will assign you. After you're assigned, please respond within 2 days to let me know you're working on it or you've completed it. _(Not a problem if you haven't competed it! Just need to know you're still interested in it.)_ If I don't hear from you within those first 2 days, I'll comment and check for the status, and if I still don't hear from you within a day, I'll likely re-assign the issue. But don't worry - you can always grab another one!
+
 ### Objective 1: Get the repo running locally
 
 1. Click the "fork repo" button at the top of the menu, then select your profile, and name it (you can stick with the default name or call it something else).

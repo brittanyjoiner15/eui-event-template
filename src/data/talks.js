@@ -12,7 +12,7 @@ export const talks = [
     description:
       "We think that colors and organization isn't cool. Well, it's actually the coolest thing that ever existed.",
     genre: "Business",
-    speaker: findSpeaker("Leslie Knope"),
+    speaker: [findSpeaker("Leslie Knope"), findSpeaker("Tom Haverford")],
   },
   {
     sessionDate: "Sept 8th",
@@ -21,7 +21,7 @@ export const talks = [
     description:
       "Come listen to the man who created glitter butter and DJ Roomba and get tips to come up with new product ideas.",
     genre: "Business",
-    speaker: findSpeaker("Tom Haverford"),
+    speaker: [findSpeaker("Tom Haverford")],
   },
   {
     sessionDate: "Sept 8th",
@@ -30,7 +30,7 @@ export const talks = [
     description:
       "After you've made something with your hands, you'll want to stain it or paint it to give it color. You think the work happens when you paint, but it's actually watching the paint dry.",
     genre: "Arts",
-    speaker: findSpeaker("Ron Swanson"),
+    speaker: [findSpeaker("Ron Swanson")],
   },
   {
     sessionDate: "Sept 13th",
@@ -38,7 +38,7 @@ export const talks = [
     description:
       "Learn why Star Wars is more super than Star Trek because of beets, bears, and battlestar galactica.",
     genre: "Arts",
-    speaker: findSpeaker("Dwight Schrute"),
+    speaker: [findSpeaker("Dwight Schrute")],
   },
   {
     sessionDate: "Sept 13th",
@@ -47,7 +47,7 @@ export const talks = [
     description:
       "An acapella performance explaining the process of getting into a university.",
     genre: "Education",
-    speaker: findSpeaker("Andy Bernard"),
+    speaker: [findSpeaker("Andy Bernard"), findSpeaker("Ron Swanson")],
   },
   {
     sessionDate: "Sept 13th",
@@ -56,6 +56,6 @@ export const talks = [
     description:
       "Our world is going to hell in a handbasket and it's time we do something about it!",
     genre: "Off Topic",
-    speaker: findSpeaker("Angela Martin"),
+    speaker: [findSpeaker("Angela Martin")],
   },
 ];

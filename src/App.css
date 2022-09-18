@@ -8,3 +8,8 @@
 .maxWidth {
     max-width: 100px;
 }
+
+.speaker-info {
+    flex-direction: row !important;
+    padding: 5px 0;
+}

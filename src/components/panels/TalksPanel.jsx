@@ -23,6 +23,43 @@ export default class TalksPanel extends React.Component {
     };
   }
 
+
+  renderSpeakers = (speakers) => {
+    if (speakers.length > 1) {
+      return speakers.map((speaker) => (
+        <>
+          <EuiFlexGroup>
+            <EuiFlexItem className="speaker-info">
+              <EuiAvatar
+                imageUrl={speaker.avatar}
+                size="s"
+                name={speaker.name}
+                className="xMargin"
+              />
+                <EuiText>{speaker.name}</EuiText>
+            </EuiFlexItem>
+          </EuiFlexGroup>
+        </>
+      ));
+    } else {
+      return (
+        <>
+          <EuiFlexGroup>
+            <EuiFlexItem className="speaker-info">
+              <EuiAvatar
+                imageUrl={speakers[0].avatar}
+                size="s"
+                name={speakers[0].name}
+                className="xMargin"
+              />
+              <EuiText>{speakers[0].name}</EuiText>
+            </EuiFlexItem>
+          </EuiFlexGroup>
+        </>
+      );
+    }
+  };
+
   columns = [
     {
       field: "sessionDate",
@@ -55,16 +92,10 @@ export default class TalksPanel extends React.Component {
       field: "speaker",
       name: "Speaker",
       render: (speaker) => (
-        <>
-          <EuiAvatar
-            imageUrl={speaker.avatar}
-            size="s"
-            name={speaker.name}
-            className="xMargin"
-          />
-          <EuiText>{speaker.name}</EuiText>
-        </>
-      ),
+        <EuiFlexGroup direction="column">
+          {this.renderSpeakers(speaker)}
+        </EuiFlexGroup>
+      )
     },
     {
       field: "genre",

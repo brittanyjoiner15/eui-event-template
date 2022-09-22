@@ -4,6 +4,8 @@ If it's your first one, don't worry! I've been in your shoes and tried to make i
 
 Just read the guidelines below, then peruse open issues, or create your own if you have ideas!
 
+Please read the [Code of Conduct](https://github.com/brittanyjoiner15/eui-event/blob/main/CODE_OF_CONDUCT.md).
+
 ## Want to contribute?
 
 This project is built on Elastic UI with React. If you want to contribute, you can do so in a couple ways!
@@ -39,7 +41,7 @@ If it's a feature...
 
 If you find an open issue you'd like to work on, add a comment, and I'll assign it to you. Once you're assigned, you can start developing!
 
-**!! Important!!** Please don't request an issue then ghost me! 
+**!! Important!!** Please don't request an issue then ghost me!
 
 If you comment on an issue requesting it, I will assign you. After you're assigned, please respond within 2 days to let me know you're working on it or you've completed it. _(Not a problem if you haven't competed it! Just need to know you're still interested in it.)_ If I don't hear from you within those first 2 days, I'll comment and check for the status, and if I still don't hear from you within a day, I'll likely re-assign the issue. But don't worry - you can always grab another one!
 

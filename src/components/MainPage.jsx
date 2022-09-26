@@ -22,27 +22,16 @@ function MainPage() {
       id: "event",  
       label: "Event Details",
       onClick: () => {history.push('/events'); window.location.reload();},
-      content: (
-        <>
-          <EventDetails />
-        </>
-      ),
     },
     {
       id: "speakers",    
       label: "Speakers",
       onClick: () =>{history.push('/speakers'); window.location.reload();},
-      content: (
-        <>
-          <SpeakersPanel />
-        </>
-      ),
     },
     {
       id: "talks",   
       label: "Talks",
-      onClick: () => {history.push('/talks'); window.location.reload();},
-      content: <TalksPanel />,
+      onClick: () => {history.push('/talks'); window.location.reload();},  
     },
   ];
 

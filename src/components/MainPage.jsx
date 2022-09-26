@@ -6,39 +6,22 @@ import {
   EuiPageContentBody,
   EuiSpacer,
 } from "@elastic/eui";
-import { React, useState } from "react";
+import React from "react";
 import BottomBar from "./BottomBar";
 import EventDetails from "./panels/EventDetails";
 import SpeakersPanel from "./panels/SpeakersPanel";
 import TalksPanel from "./panels/TalksPanel";
 import Navbar from "./Navbar";
+import { Routes, Route } from 'react-router-dom'
+import history from "../utilities/history";
 
 function MainPage() {
-  const [selectedTab, setSelectedTab] = useState("event");
-
-  const onSelectedTabChanged = (id) => {
-    setSelectedTab(id);
-  };
-
-  const showSelectedContent = () => {
-    switch (selectedTab) {
-      case "event":
-        return tabs[0].content;
-      case "speakers":
-        return tabs[1].content;
-      case "talks":
-        return tabs[2].content;
-      default:
-        return tabs[0].content;
-    }
-  };
 
   const tabs = [
     {
-      id: "event",
-      isSelected: selectedTab === "event",
+      id: "event",  
       label: "Event Details",
-      onClick: () => onSelectedTabChanged("event"),
+      onClick: () => {history.push('/events'); window.location.reload();},
       content: (
         <>
           <EventDetails />
@@ -46,10 +29,9 @@ function MainPage() {
       ),
     },
     {
-      id: "speakers",
-      isSelected: selectedTab === "speakers",
+      id: "speakers",    
       label: "Speakers",
-      onClick: () => onSelectedTabChanged("speakers"),
+      onClick: () =>{history.push('/speakers'); window.location.reload();},
       content: (
         <>
           <SpeakersPanel />
@@ -57,10 +39,9 @@ function MainPage() {
       ),
     },
     {
-      id: "talks",
-      isSelected: selectedTab === "talks",
+      id: "talks",   
       label: "Talks",
-      onClick: () => onSelectedTabChanged("talks"),
+      onClick: () => {history.push('/talks'); window.location.reload();},
       content: <TalksPanel />,
     },
   ];
@@ -78,8 +59,15 @@ function MainPage() {
             borderRadius="none"
             verticalPosition="center"
             horizontalPosition="center"
-          >
-            <EuiPageContentBody>{showSelectedContent()}</EuiPageContentBody>
+          > 
+            <EuiPageContentBody>
+              <Routes>
+                <Route path='/' element={<EventDetails />} />
+                <Route path='/events' element={<EventDetails />} />
+                <Route path='/speakers' element={<SpeakersPanel />} />
+                <Route path='/talks' element={<TalksPanel />} />  
+              </Routes>
+            </EuiPageContentBody>
             <EuiSpacer size="l" />
           </EuiPageContent>
           <BottomBar />

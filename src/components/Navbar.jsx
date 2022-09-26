@@ -5,6 +5,7 @@ import { makeRainbowText } from "../utilities/rainbowLetters";
 import { sessionOne, sessionTwo, rainbowCluster } from "../data/consts";
 
 export default function Navbar(props) {
+  
   return (
     <>
       <EuiPageHeader

@@ -31,6 +31,8 @@ https://eui-event.vercel.app/
 
 Want to contribute and improve something here? I would love that! Check out the [contributing guidelines](https://github.com/brittanyjoiner15/eui-event/blob/main/contributing.md), then [head to issues](https://github.com/brittanyjoiner15/eui-event/issues) and look for open issues. If you need any help or clarification, just comment on there and let me know. Also, feel free to submit your own issues if you have ideas!
 
+**UPDATE: I am so excited by how many folks want to contribute to this repo! I'm trying to create new requests to keep up with the demand but if you have any ideas of how you can improve the app, please feel free to open an issue with your recommendations, and I'll be happy to review it and if it aligns, I'll assign it to you!**
+
 ## MIT License
 
 Copyright 2022 Brittany Joiner

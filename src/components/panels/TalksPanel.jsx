@@ -20,6 +20,8 @@ export default class TalksPanel extends React.Component {
 
     this.state = {
       showEst: false,
+      sortedTalks: [...talks],
+      sortOrder: '',
     };
   }
 
@@ -64,11 +66,12 @@ export default class TalksPanel extends React.Component {
     {
       field: "sessionDate",
       name: "Session",
+      sortable: true,
       render: (sessionDate) => (
         <EuiBadge color={sessionDate === "Sept 8th" ? "primary" : "success"}>
           {sessionDate}
         </EuiBadge>
-      ),
+      ),     
     },
     {
       field: "sessionTime",
@@ -123,6 +126,14 @@ export default class TalksPanel extends React.Component {
     },
   ];
 
+  sorting = {
+    sort: {
+       field: "sessionDate",
+       direction: '0',
+    },
+    
+  };
+
   renderShowEstButton() {
     return (
       <EuiPanel>
@@ -142,11 +153,62 @@ export default class TalksPanel extends React.Component {
       </EuiPanel>
     );
   }
+  date = (x) => {
+    let d = '';
+    for (let i=0; i< x.sessionDate.length - 2; i++){
+        d += x.sessionDate[i];
+    }
+    //console.log(d);
+    return d;
+}
+
+
+ sortByDateHandler = async() => {
+    //if (this.state.sortedTalks.length === 0) return;
+    const arr = this.state.sortedTalks;
+    if (this.state.sortOrder==='' || this.state.sortOrder === 'dsc')    
+      {for (let i=1; i<arr.length; i++){
+          let key = arr[i];
+          let keyDate = new Date(this.date(key));
+          
+          let j = i-1;
+          let jDate = new Date(this.date(arr[j]));
+          
+          while (j>=0 && keyDate<jDate){
+              arr[j+1] = arr[j];
+              j=j-1;
+              if (j===-1) break;
+              jDate = new Date(this.date(arr[j]));
+          }
+          arr[j+1] = key;
+      }
+      this.setState(({sortOrder: 'asc', sortedTalks: arr}));
+    }
+    else if (this.state.sortOrder === 'asc'){
+      for (let i=1; i<arr.length; i++){
+        let key = arr[i];
+        let keyDate = new Date(this.date(key));
+        
+        let j = i-1;
+        let jDate = new Date(this.date(arr[j]));
+        
+        while (j>=0 && keyDate>jDate){
+            arr[j+1] = arr[j];
+            j=j-1;
+            if (j===-1) break;
+            jDate = new Date(this.date(arr[j]));
+        }
+        arr[j+1] = key;
+    }
+    this.setState(({sortOrder: 'dsc', sortedTalks: arr}));
+    }
+    
+}
 
   renderTalkTable() {
     return (
       <EuiFlexItem>
-        <EuiBasicTable items={talks} columns={this.columns} hasActions />
+        <EuiBasicTable items={this.state.sortedTalks} columns={this.columns} sorting={this.sorting} onChange={this.sortByDateHandler} hasActions />
       </EuiFlexItem>
     );
   }

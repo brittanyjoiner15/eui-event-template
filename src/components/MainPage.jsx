@@ -6,7 +6,7 @@ import {
   EuiPageContentBody,
   EuiSpacer,
 } from "@elastic/eui";
-import { React, useState } from "react";
+import { React, useCallback, useState } from "react";
 import BottomBar from "./BottomBar";
 import EventDetails from "./panels/EventDetails";
 import SpeakersPanel from "./panels/SpeakersPanel";
@@ -65,11 +65,15 @@ function MainPage() {
     },
   ];
 
+  const onLogoClick = useCallback(() => {
+    onSelectedTabChanged("event");
+  }, []);
+
   return (
     <EuiPage paddingSize="none">
       <EuiFlexGroup className="eui-fullHeight">
         <EuiPageBody panelled>
-          <Navbar tabs={tabs} />
+          <Navbar tabs={tabs} onLogoClick={onLogoClick} />
           <EuiPageContent
             hasBorder={false}
             hasShadow={false}

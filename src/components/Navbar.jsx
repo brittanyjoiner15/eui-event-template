@@ -10,6 +10,9 @@ export default function Navbar(props) {
       <EuiPageHeader
         restrictWidth
         iconType={rainbowCluster}
+        iconProps={{
+          onClick: props.onLogoClick,
+        }}
         pageTitle={makeRainbowText()}
         rightSideItems={[
           addCalButtons(sessionTwo.dateAndTime, sessionTwo.calendarLink),

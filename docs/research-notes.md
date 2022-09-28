@@ -1,4 +1,4 @@
-#### This file includes research done to assist improve the app, including suggestions for new features or technologies.
+#### This file includes research done to improve the app, including suggestions for new features or technologies.
 
 - Update the table below  with the following information:
     - Description of the technology or feature.

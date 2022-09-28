@@ -26,8 +26,7 @@ export default class EventDetails extends React.Component {
       <EuiEmptyPrompt
         title={
           <span>
-            Bringing Rainbow Stack members together to share ideas, learn from
-            each other, and have fun together!
+            Identity theft is not a joke. Millions of famillies suffer every year. 
           </span>
         }
         body={

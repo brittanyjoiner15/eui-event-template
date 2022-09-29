@@ -1,6 +1,6 @@
 ## Welcome to EUI Event Template customization guide 
 
-If you want to use this template for your own event, here is everything that you need to change along with a brief description of how to make the respective change:
+If you want to use this template for your own event, here is everything that you need to change along with a brief description of how to make the respective change. The guide has been divided by sections of the web app:
 
 ### Nav Bar:
 
@@ -28,5 +28,13 @@ If you want to use this template for your own event, here is everything that you
 
 - [ ] **Replace placeholder in Add to Cal for respective talk sessions**: Follow the path ```eui-event-template/src/components/panels/TalksPanel.jsx```. In the ```TalksPanel.jsx``` file, on _line 117_, replace the “Sept 8th” value with the date of your first session, the  “#” with a link to the calendar for the date of your event's first session and the “?” with a link to the calendar for the date of your event's second session. **Keep the format for the date same as you have used for the buttons, otherwise the comparison will fail**.   
 
+### Bottom Bar:
+- [ ] **Change host name:** Follow the path ```eui-event-template/src/components/BottomBar.jsx```. In the ```BottomBar.jsx``` file, on _line 18_, replace the placeholder host name with your event’s host name.
+
+- [ ] **Change host subtitle:** Follow the path ```eui-event-template/src/components/BottomBar.jsx```. In the ```BottomBar.jsx``` file, _on line 20_, replace the placeholder host subtitle with your event host’s subtitle.
+
+- [ ] **Change button texts:** Follow the path ```eui-event-template/src/components/BottomBar.jsx```. In the ```BottomBar.jsx``` file, on _line 25 and 31_, replace the placeholder button texts with your own texts if needed.
+
+- [ ] **Change button links:** Follow the path ```eui-event-template/src/components/BottomBar.jsx```. In the ```BottomBar.jsx``` file, on _line 24 and 30_, replace the href placeholder value in the EuiButton tag with the link you want the visitor to go to after clicking on the button.
 
 

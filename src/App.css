@@ -17,3 +17,8 @@
 .euiImage__img{
     max-width:1200px;
 }
+
+h1.euiTitle{
+   min-width:300px !important;
+   font-size:2.5rem
+}

@@ -14,8 +14,8 @@
     padding: 5px 0;
 }
 
-.euiImage__img{
-    max-width:1200px;
+.euiImage{
+    max-width:1200px !important;
 }
 
 h1.euiTitle{

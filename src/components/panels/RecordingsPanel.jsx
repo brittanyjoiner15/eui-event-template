@@ -1,43 +1,21 @@
 import {
-    EuiBadge,
     EuiCard,
     EuiFlexGrid,
     EuiFlexItem,
-    EuiImage,
-    EuiText,
 } from "@elastic/eui";
 import React from "react";
-import { speakers } from "../../data/speakers";
+import { recordings } from "../../data/recordings";
 
-export default class SpeakersPanel extends React.Component {
-  renderAllSpeakers() {
+export default class RecordingsPanel extends React.Component {
+  renderAllRecordings() {
     return (
       <>
-        {speakers.map((speaker) => {
+        {recordings.map((recording) => {
           return (
             <EuiFlexItem>
-              <EuiCard
-                aria-label={speaker.name}
-                image={<EuiImage size="m" src={speaker.avatar}></EuiImage>}
-                footer={speaker.shortBio}
-                description={
-                  <>
-                    <EuiText color="success">
-                      <strong>{speaker.title}</strong>
-                    </EuiText>
-                    <EuiBadge color="primary" iconType="branch">
-                      {speaker.team}
-                    </EuiBadge>
-                    <EuiBadge color="warning" iconType="globe">
-                      {speaker.basedIn}
-                    </EuiBadge>
-                    <EuiBadge color="success" iconType="faceHappy">
-                      {speaker.pronouns}
-                    </EuiBadge>
-                  </>
-                }
-                title={speaker.name}
-              />
+              <EuiCard>
+              {recording.embedId}
+              </EuiCard>
             </EuiFlexItem>
           );
         })}
@@ -54,7 +32,7 @@ export default class SpeakersPanel extends React.Component {
           gutterSize="l"
           className="xMargin"
         >
-          {this.renderAllSpeakers()}
+          {this.renderAllRecordings()}
         </EuiFlexGrid>
       </>
     );

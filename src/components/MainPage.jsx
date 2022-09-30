@@ -11,6 +11,7 @@ import BottomBar from "./BottomBar";
 import EventDetails from "./panels/EventDetails";
 import SpeakersPanel from "./panels/SpeakersPanel";
 import TalksPanel from "./panels/TalksPanel";
+import RecordingsPanel from "./panels/RecordingsPanel";
 import Navbar from "./Navbar";
 
 function MainPage() {
@@ -28,6 +29,8 @@ function MainPage() {
         return tabs[1].content;
       case "talks":
         return tabs[2].content;
+      case "recordings":
+        return tabs[3].content;
       default:
         return tabs[0].content;
     }
@@ -63,6 +66,13 @@ function MainPage() {
       onClick: () => onSelectedTabChanged("talks"),
       content: <TalksPanel />,
     },
+    {
+      id:"recordings",
+      isSelected: selectedTab ==="recordings",
+      label : "Recordings",
+      onClick: () => onSelectedTabChanged("recordings"),
+      content: <RecordingsPanel />
+    }
   ];
 
   const onLogoClick = useCallback(() => {

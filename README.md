@@ -1,6 +1,6 @@
 ## Happy Hacktoberfest!!
 
-_I remember my first Hacktoberfest so clearly because I was so intimidated by Git and contributing code to other repos, and I was still VERY early in my coding journey and didn't even know how to code, but enjoyed the experience so much!_
+_I remember my first Hacktoberfest so clearly because I was so intimidated by Git and contributing code to other repos, and I was still VERY early in my coding journey and didn't even know how to code but enjoyed the experience so much!_
 
 _Hacktoberfest holds a special place in my heart because it's a great way to get started into coding and comfortable with Github. I'm so excited to finally mantain a repo that I can help others experience the same joy I did!_
 

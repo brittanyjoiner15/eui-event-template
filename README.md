@@ -27,6 +27,76 @@ https://eui-event.vercel.app/
 - Run `yarn start dev` to start it up!
 - Go to localhost:3000 in your browser to view it!
 
+## Connect Google Sheets with your app
+
+Follow these steps to connect your google sheets file with the app.
+
+### 1. Create a google sheet
+
+#### 1. Go to https://docs.google.com/ and create a blank sheet
+#### 2. Add name, title, team, location, shortBio, pronouns, imageLink headers in the sheet.
+#### 3. Populate the sheet with some data.
+#### 4. Change the sheet name to "Speakers" (Name is case sensitive).
+
+![](https://i.postimg.cc/MGPDVgkF/Sheet-Demo.jpg)
+
+
+### 2. Deploy App Script Web App
+
+#### 1. Open your google sheet.
+#### 2. Click on Extensions tab.
+#### 3. Click on App Script.
+![](https://i.postimg.cc/x8BPkmzp/App-Script.jpg)
+#### 4. Delete all the code from the editor (inside Code.gs file).
+####
+        function doGet(req) {
+            if(req.parameters.sheetName == "Speakers") {
+                return getSpeakersData()
+            }
+        }
+
+        function getSpeakersData() {
+        var doc = SpreadsheetApp.getActiveSpreadsheet()
+        var sheet = doc.getSheetByName("Speakers")
+        var values = sheet.getDataRange().getValues()
+        
+        var output = []
+        for(var i=1; i<values.length; i++) {
+            var row = {}
+            row['name'] = values[i][0]
+            row['title'] = values[i][1]
+            row['team'] = values[i][2]
+            row['location'] = values[i][3]
+            row['shortBio'] = values[i][4]
+            row['pronouns'] = values[i][5]
+            row['imageLink'] = values[i][6]
+
+            output.push(row)
+        }
+
+            return ContentService.createTextOutput(JSON.stringify({speakers: output})).setMimeType(ContentService.MimeType.JSON)
+        }
+        
+#### 5. Paste above code in the Code.gs file.
+#### 6. Click on Deploy button and select New Deployment.
+![](https://i.postimg.cc/43DGfL8r/New-deployment.jpg)
+
+#### 7. Click on settings icon on select type menu and select web app.
+![](https://i.postimg.cc/jjW3jRmj/Deployment-settings.jpg)
+
+#### 8. Add Description.
+#### 9. Select Anyone in who has access section and click deploy.
+#### 10. Allow all permission if asked.
+#### 11. Copy the Web URL.
+![](https://i.postimg.cc/1Xzq937C/Copy-url.jpg)
+
+### 3. Configure local project
+
+#### 1. Open project folder, go to src/utilities/env.js
+#### 2. Replace the string webAppUrl with the Web URL you copied.
+![](https://i.postimg.cc/9fJXcY32/Env-file.jpg)
+#### 3. Refresh the speakers page to see the results.
+
 ## Contributing
 
 Want to contribute and improve something here? I would love that! Check out the [contributing guidelines](https://github.com/brittanyjoiner15/eui-event/blob/main/contributing.md), then [head to issues](https://github.com/brittanyjoiner15/eui-event/issues) and look for open issues. If you need any help or clarification, just comment on there and let me know. Also, feel free to submit your own issues if you have ideas!

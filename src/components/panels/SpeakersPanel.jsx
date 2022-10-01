@@ -7,46 +7,27 @@ import {
   EuiText,
 } from "@elastic/eui";
 import React from "react";
-import { speakers } from "../../data/speakers";
+import { useEffect } from "react";
+// import { speakers } from "../../data/speakers";
+import axios from 'axios'
+import { useState } from "react";
+import {webAppUrl as url} from '../../utilities/env' 
 
-export default class SpeakersPanel extends React.Component {
-  renderAllSpeakers() {
-    return (
-      <>
-        {speakers.map((speaker) => {
-          return (
-            <EuiFlexItem>
-              <EuiCard
-                aria-label={speaker.name}
-                image={<EuiImage size="m" src={speaker.avatar}></EuiImage>}
-                footer={speaker.shortBio}
-                description={
-                  <>
-                    <EuiText color="success">
-                      <strong>{speaker.title}</strong>
-                    </EuiText>
-                    <EuiBadge color="primary" iconType="branch">
-                      {speaker.team}
-                    </EuiBadge>
-                    <EuiBadge color="warning" iconType="globe">
-                      {speaker.basedIn}
-                    </EuiBadge>
-                    <EuiBadge color="success" iconType="faceHappy">
-                      {speaker.pronouns}
-                    </EuiBadge>
-                  </>
-                }
-                title={speaker.name}
-              />
-            </EuiFlexItem>
-          );
-        })}
-      </>
-    );
-  }
+function SpeakersPanel() {
 
-  render() {
-    return (
+  const [speakers, setSpeakers] = useState([])
+
+  useEffect(() => {
+    const fetchSpeakersDetails = async () => {
+      const res = await axios.get(`${url}?sheetName=Speakers`)
+      console.log(res.data)
+      setSpeakers(res.data.speakers)
+    }
+
+    fetchSpeakersDetails()
+  }, [])
+
+  return (
       <>
         <EuiFlexGrid
           columns={3}
@@ -54,9 +35,37 @@ export default class SpeakersPanel extends React.Component {
           gutterSize="l"
           className="xMargin"
         >
-          {this.renderAllSpeakers()}
+          {speakers.map((speaker) => {
+            return (
+              <EuiFlexItem>
+                <EuiCard
+                  aria-label={speaker.name}
+                  image={<EuiImage size="m" src={speaker.imageLink}></EuiImage>}
+                  footer={speaker.shortBio}
+                  description={
+                    <>
+                      <EuiText color="success">
+                        <strong>{speaker.title}</strong>
+                      </EuiText>
+                      <EuiBadge color="primary" iconType="branch">
+                        {speaker.team}
+                      </EuiBadge>
+                      <EuiBadge color="warning" iconType="globe">
+                        {speaker.location}
+                      </EuiBadge>
+                      <EuiBadge color="success" iconType="faceHappy">
+                        {speaker.pronouns}
+                      </EuiBadge>
+                    </>
+                  }
+                  title={speaker.name}
+                />
+              </EuiFlexItem>
+            )
+          })}
         </EuiFlexGrid>
       </>
-    );
-  }
+  )
 }
+
+export default SpeakersPanel

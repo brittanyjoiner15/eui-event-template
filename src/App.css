@@ -23,3 +23,21 @@
 .social-links svg{
     display: none;
 }
+
+.speaker-card {
+    transition: 0.2s all linear;
+}
+
+.speaker-card:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 11px rgba(236, 226, 226, 0.2);
+}
+    
+.euiImage{
+    max-width:1200px !important;
+}
+
+h1.euiTitle{
+   min-width:300px !important;
+   font-size:2.5rem
+}

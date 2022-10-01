@@ -21,6 +21,7 @@
 .speaker-card:hover {
     transform: scale(1.04);
     box-shadow: 0 0 11px rgba(236, 226, 226, 0.2);
+}
     
 .euiImage{
     max-width:1200px !important;

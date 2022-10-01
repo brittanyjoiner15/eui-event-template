@@ -39,11 +39,15 @@ If it's a feature...
 
 ### Step 1: Pick an issue and get assigned
 
+**!! Please don't start with a pull request!** Please look for open issues, comment on one, and wait to be assigned before starting on it.
+
 If you find an open issue you'd like to work on, add a comment, and I'll assign it to you. Once you're assigned, you can start developing!
 
 **!! Important!!** Please don't request an issue then ghost me!
 
 If you comment on an issue requesting it, I will assign you. After you're assigned, please respond within 2 days to let me know you're working on it or you've completed it. _(Not a problem if you haven't completed it! Just need to know you're still interested in it)_ If I don't hear from you within those first 2 days, I'll comment and check for the status, and if I still don't hear from you within a day, I'll likely re-assign the issue. But don't worry - you can always grab another one!
+
+Note - at this time, we'd only like folks to be assigned _one_ issue at a time, unless there's an exception where two issues are very related, but in most situations please request one issue at a time. Once you complete that issue and the PR is merged successfully, you'll be welcoome to request another one! (I review pretty quickly and shouldn't be holding you up too long!)
 
 ### Step 2: Get the repo running locally
 

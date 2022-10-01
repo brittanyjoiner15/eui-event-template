@@ -31,12 +31,13 @@ https://eui-event.vercel.app/
 
 Want to contribute and improve something here? I would love that! Check out the [contributing guidelines](https://github.com/brittanyjoiner15/eui-event/blob/main/contributing.md), then [head to issues](https://github.com/brittanyjoiner15/eui-event/issues) and look for open issues. If you need any help or clarification, just comment on there and let me know. Also, feel free to submit your own issues if you have ideas!
 
-## MIT License
+**UPDATE: I am so excited by how many folks want to contribute to this repo! I'm trying to create new requests to keep up with the demand but if you have any ideas of how you can improve the app, please feel free to open an issue with your recommendations, and I'll be happy to review it and if it aligns, I'll assign it to you!**
 
-Copyright 2022 Brittany Joiner
+## License
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Source code in this repository is covered by (i) a dual license under the Server
+Side Public License, v 1 and the Elastic License 2.0 or (ii) an Apache License
+2.0 compatible license or (iii) solely under the Elastic License 2.0, in each
+case, as noted in the applicable header. The default throughout the repository
+is a dual license under the Server Side Public License, v 1 and the Elastic
+License 2.0, unless the header specifies another license.

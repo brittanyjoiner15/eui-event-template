@@ -1,8 +1,8 @@
 ## Happy Hacktoberfest!!
 
-_I remember my first Hacktoberfest so clearly because I was so intimidated by Git and contributing code to other repos, and I was still VERY early in my coding journey and didn't even know how to code, but enjoyed the experience so much!_
+_I remember my first Hacktoberfest so clearly because I was so intimidated by Git and contributing code to other repos, and I was still VERY early in my coding journey and didn't even know how to code, but enjoyed the experience so much!
 
-_Hacktoberfest holds a special place in my heart because it's a great way to get started into coding and comfortable with Github. I'm so excited to finally mantain a repo that I can help others experience the same joy I did!_
+_Hacktoberfest holds a special place in my heart because it's a great way to get started into coding and comfortable with Github. I'm so excited to finally mantain a repo that I can help others experience the same joy I did!
 
 Want to participate in [Hacktoberfest](https://hacktoberfest.com/)? All you have to do is sign up, and then successfully merge 4 pull requests in the month of October! Check out our [contributing guidelines](https://github.com/brittanyjoiner15/eui-event/blob/main/contributing.md) and [open issues](https://github.com/brittanyjoiner15/eui-event) to participate from this repo!
 

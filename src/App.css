@@ -13,3 +13,12 @@
     flex-direction: row !important;
     padding: 5px 0;
 }
+
+.euiImage{
+    max-width:1200px !important;
+}
+
+h1.euiTitle{
+   min-width:300px !important;
+   font-size:2.5rem
+}

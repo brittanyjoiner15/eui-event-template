@@ -11,79 +11,36 @@ import BottomBar from "./BottomBar";
 import EventDetails from "./panels/EventDetails";
 import SpeakersPanel from "./panels/SpeakersPanel";
 import TalksPanel from "./panels/TalksPanel";
-import RecordingsPanel from "./panels/RecordingsPanel";
 import Navbar from "./Navbar";
+import { Routes, Route } from 'react-router-dom'
+import history from "../utilities/history";
 
 function MainPage() {
-  const [selectedTab, setSelectedTab] = useState("event");
 
-  const onSelectedTabChanged = (id) => {
-    setSelectedTab(id);
-  };
-
-  const showSelectedContent = () => {
-    switch (selectedTab) {
-      case "event":
-        return tabs[0].content;
-      case "speakers":
-        return tabs[1].content;
-      case "talks":
-        return tabs[2].content;
-      case "recordings":
-        return tabs[3].content;
-      default:
-        return tabs[0].content;
-    }
-  };
 
   const tabs = [
     {
-      id: "event",
-      isSelected: selectedTab === "event",
+      id: "event",  
       label: "Event Details",
-      onClick: () => onSelectedTabChanged("event"),
-      content: (
-        <>
-          <EventDetails />
-        </>
-      ),
+      onClick: () => {history.push('/events'); window.location.reload();},
     },
     {
-      id: "speakers",
-      isSelected: selectedTab === "speakers",
+      id: "speakers",    
       label: "Speakers",
-      onClick: () => onSelectedTabChanged("speakers"),
-      content: (
-        <>
-          <SpeakersPanel />
-        </>
-      ),
+      onClick: () =>{history.push('/speakers'); window.location.reload();},
     },
     {
-      id: "talks",
-      isSelected: selectedTab === "talks",
+      id: "talks",   
       label: "Talks",
-      onClick: () => onSelectedTabChanged("talks"),
-      content: <TalksPanel />,
+      onClick: () => {history.push('/talks'); window.location.reload();},  
     },
-    {
-      id:"recordings",
-      isSelected: selectedTab ==="recordings",
-      label : "Recordings",
-      onClick: () => onSelectedTabChanged("recordings"),
-      content: <RecordingsPanel />
-    }
   ];
-
-  const onLogoClick = useCallback(() => {
-    onSelectedTabChanged("event");
-  }, []);
 
   return (
     <EuiPage paddingSize="none">
       <EuiFlexGroup className="eui-fullHeight">
         <EuiPageBody panelled>
-          <Navbar tabs={tabs} onLogoClick={onLogoClick} />
+        <Navbar tabs={tabs} /> 
           <EuiPageContent
             hasBorder={false}
             hasShadow={false}
@@ -92,8 +49,15 @@ function MainPage() {
             borderRadius="none"
             verticalPosition="center"
             horizontalPosition="center"
-          >
-            <EuiPageContentBody>{showSelectedContent()}</EuiPageContentBody>
+          > 
+            <EuiPageContentBody>
+              <Routes>
+                <Route path='/' element={<EventDetails />} />
+                <Route path='/events' element={<EventDetails />} />
+                <Route path='/speakers' element={<SpeakersPanel />} />
+                <Route path='/talks' element={<TalksPanel />} />  
+              </Routes>
+            </EuiPageContentBody>
             <EuiSpacer size="l" />
           </EuiPageContent>
           <BottomBar />

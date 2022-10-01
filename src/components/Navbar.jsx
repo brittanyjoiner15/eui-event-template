@@ -5,6 +5,7 @@ import { addCalButtons } from "../utilities/addCalButtons";
 import { sessionOne, sessionTwo, eventIcon } from "../data/consts";
 
 export default function Navbar(props) {
+  
   return (
     <>
       <EuiPageHeader

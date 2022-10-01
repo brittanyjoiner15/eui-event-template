@@ -15,9 +15,9 @@ export default class Bottombar extends React.Component {
           <EuiFlexGroup direction="row" alignItems="center">
             <EuiFlexItem>
               <EuiText>
-                <h4>Hosted by Elastic's Rainbow Stack ERG </h4>
+                <h4>Hosted by Dunder Mifflin and Parks and Recreation Department ! </h4>
               </EuiText>
-              <EuiText>Group for LGBTQIA+ members and allies</EuiText>
+              <EuiText>Group for all paper enthusiasts and bureaucrats </EuiText>
             </EuiFlexItem>
 
             <EuiFlexItem grow={false}>

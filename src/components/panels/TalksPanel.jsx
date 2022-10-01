@@ -21,7 +21,9 @@ export default class TalksPanel extends React.Component {
     this.state = {
       showEst: false,
       sortedTalks: [...talks],
-      sortOrder: '',
+      sortByDateOrder: '',
+      sortByTimeOrder: '',
+      sortByTitleOrder:'',
     };
   }
 
@@ -76,6 +78,7 @@ export default class TalksPanel extends React.Component {
     {
       field: "sessionTime",
       name: "Time",
+      //sortable: true,
       render: (sessionTime) => (
         <>
           <EuiIcon type="clock" />
@@ -86,6 +89,7 @@ export default class TalksPanel extends React.Component {
     {
       field: "title",
       name: "Title",
+      sortable: true,
     },
     {
       field: "description",
@@ -127,11 +131,13 @@ export default class TalksPanel extends React.Component {
   ];
 
   sorting = {
-    sort: {
+    sort: [{
        field: "sessionDate",
-       direction: '0',
-    },
-    
+       direction: "asc" | "desc",
+    }, {
+      field: "sessionTime",
+      direction: '0',
+    }],
   };
 
   renderShowEstButton() {
@@ -153,20 +159,29 @@ export default class TalksPanel extends React.Component {
       </EuiPanel>
     );
   }
+
+  sortTalksTableHandler = (sortObj) => {
+    if (sortObj.sort.field === "sessionDate"){
+      this.sortByDate();
+    } else if (sortObj.sort.field === "sessionTime"){
+      this.sortByTime();
+    } else if (sortObj.sort.field === "title"){
+      this.sortByTitle();
+    }
+  }
+
   date = (x) => {
     let d = '';
     for (let i=0; i< x.sessionDate.length - 2; i++){
         d += x.sessionDate[i];
     }
-    //console.log(d);
     return d;
-}
+  }
 
-
- sortByDateHandler = async() => {
-    //if (this.state.sortedTalks.length === 0) return;
+ sortByDate = () => {
+    
     const arr = this.state.sortedTalks;
-    if (this.state.sortOrder==='' || this.state.sortOrder === 'dsc')    
+    if (this.state.sortByDateOrder==='' || this.state.sortByDateOrder === 'dsc')    
       {for (let i=1; i<arr.length; i++){
           let key = arr[i];
           let keyDate = new Date(this.date(key));
@@ -182,9 +197,9 @@ export default class TalksPanel extends React.Component {
           }
           arr[j+1] = key;
       }
-      this.setState(({sortOrder: 'asc', sortedTalks: arr}));
+      this.setState(({sortByDateOrder: 'asc', sortedTalks: arr, sortByTitleOrder: ''}));
     }
-    else if (this.state.sortOrder === 'asc'){
+    else if (this.state.sortByDateOrder === 'asc'){
       for (let i=1; i<arr.length; i++){
         let key = arr[i];
         let keyDate = new Date(this.date(key));
@@ -200,15 +215,134 @@ export default class TalksPanel extends React.Component {
         }
         arr[j+1] = key;
     }
-    this.setState(({sortOrder: 'dsc', sortedTalks: arr}));
+      this.setState(({sortByDateOrder: 'dsc', sortedTalks: arr, sortByTitleOrder: ''}));
     }
     
-}
+  }
+
+  sortByTime = () => {
+    const arr = this.state.sortedTalks;
+    if (this.state.sortByDateOrder === ''){
+      if (this.state.sortByTimeOrder === 'dsc' || this.state.sortByTimeOrder=== ''){
+      
+      
+        for (let i=1; i<arr.length; i++) {
+          let key = arr[i];
+          let keyTime = new Date(key.sessionTime).getTime();
+  
+          let j = i-1;
+          let jTime = new Date(arr[j].sessionTime).getTime();
+  
+          while (j>=0 && keyTime<jTime){
+            arr[j+1] = arr[j];
+            j=j-1;
+            if(j === -1) break;
+            jTime = new Date(arr[j].sessionTime).getTime();
+          }
+          arr[j+1] = key;
+        }
+        this.setState({sortByTimeOrder: 'asc', sortedTalks: arr, sortByTitleOrder: ''});
+      }
+      if (this.state.sortByTimeOrder === 'asc'){
+        
+        for (let i=1; i<arr.length; i++) {
+          let key = arr[i];
+          let keyTime = new Date(key.sessionTime).getTime();
+  
+          let j = i-1;
+          let jTime = new Date(arr[j].sessionTime).getTime();
+  
+          while (j>=0 && keyTime>jTime){
+            arr[j+1] = arr[j];
+            j=j-1;
+            if(j === -1) break;
+            jTime = new Date(arr[j].sessionTime).getTime();
+          }
+          arr[j+1] = key;
+        }
+        this.setState({sortByTimeOrder: 'dsc', sortedTalks: arr, sortByTitleOrder: ''});
+      }
+    }
+    else {
+      if (this.state.sortByTimeOrder === 'dsc' || this.state.sortByTimeOrder === ''){
+      
+      
+        for (let i=1; i<arr.length; i++) {
+          let key = arr[i];
+          let keyDate = key.sessionDate;
+          let keyTime = new Date(key.sessionTime).getTime();
+  
+          let j = i-1;
+          let jDate = arr[j].sessionDate;
+          let jTime = new Date(arr[j].sessionTime).getTime();
+  
+          while (j>=0 && keyDate === jDate && keyTime<jTime){
+            arr[j+1] = arr[j];
+            j=j-1;
+            if(j === -1) break;
+            jDate = arr[j].sessionDate;
+            jTime = new Date(arr[j].sessionTime).getTime();
+          }
+          arr[j+1] = key;
+        }
+        this.setState({sortByTimeOrder: 'asc', sortedTalks: arr, sortByTitleOrder: ''});
+      }
+      if (this.state.sortByTimeOrder === 'asc'){
+        
+        for (let i=1; i<arr.length; i++) {
+          let key = arr[i];
+          let keyDate = key.sessionDate;
+          let keyTime = new Date(key.sessionTime).getTime();
+  
+          let j = i-1;
+          let jDate = arr[j].sessionDate;
+          let jTime = new Date(arr[j].sessionTime).getTime();
+  
+          while (j>=0 && keyDate === jDate && keyTime>jTime){
+            arr[j+1] = arr[j];
+            j=j-1;
+            if(j === -1) break;
+            jDate = arr[j].sessionDate;
+            jTime = new Date(arr[j].sessionTime).getTime();
+          }
+          arr[j+1] = key;
+        }
+        this.setState({sortByTimeOrder: 'dsc', sortedTalks: arr, sortByTitleOrder: ''});
+      }
+    }
+  }
+
+  sortByTitle = () => {
+    const arr = this.state.sortedTalks;
+    if (this.state.sortByTitleOrder === '' || this.state.sortByTitleOrder === 'dsc'){
+      for (let i=1; i<arr.length; i++){
+        let key = arr[i];
+        let j = i-1;
+        while (j>=0 && key.title < arr[j].title){
+          arr[j+1] = arr[j];
+          j=j-1;
+        }
+        arr[j+1] = key;
+      }
+      this.setState({sortByTitleOrder: 'asc', sortedTalks: arr, sortByDateOrder: '', sortByTimeOrder: ''});
+    } else if (this.state.sortByTitleOrder === 'asc'){
+      for (let i=1; i<arr.length; i++){
+        let key = arr[i];
+        let j = i-1;
+        while (j>=0 && key.title > arr[j].title){
+          arr[j+1] = arr[j];
+          j=j-1;
+        }
+        arr[j+1] = key;
+      }
+      this.setState({sortByTitleOrder: 'dsc', sortedTalks: arr, sortByDateOrder: '', sortByTimeOrder: ''});
+    }
+  }
 
   renderTalkTable() {
     return (
       <EuiFlexItem>
-        <EuiBasicTable items={this.state.sortedTalks} columns={this.columns} sorting={this.sorting} onChange={this.sortByDateHandler} hasActions />
+        <EuiBasicTable items={this.state.sortedTalks} columns={this.columns} sorting={this.sorting} onChange={this.sortTalksTableHandler} hasActions />
       </EuiFlexItem>
     );
   }

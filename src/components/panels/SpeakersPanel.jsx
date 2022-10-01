@@ -15,7 +15,7 @@ export default class SpeakersPanel extends React.Component {
       <>
         {speakers.map((speaker) => {
           return (
-            <EuiFlexItem>
+            <EuiFlexItem className="speaker-card">
               <EuiCard
                 aria-label={speaker.name}
                 image={<EuiImage size="m" src={speaker.avatar}></EuiImage>}

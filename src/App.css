@@ -13,3 +13,12 @@
     flex-direction: row !important;
     padding: 5px 0;
 }
+
+.speaker-card {
+    transition: 0.2s all linear;
+}
+
+.speaker-card:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 11px rgba(236, 226, 226, 0.2);
+}

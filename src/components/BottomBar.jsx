@@ -10,9 +10,6 @@ import React from "react";
 
 export default class Bottombar extends React.Component {
   render() {
-    const socialIcons = {
-      fontSize: "30px",
-    };
     return (
       <>
         <EuiBottomBar position="static">
@@ -29,40 +26,36 @@ export default class Bottombar extends React.Component {
                 responsive={false}
               >
                 <EuiFlexItem grow={false}>
-                  <EuiLink href="#">
+                  <EuiLink href="#" target="_blank" className="social-links">
                     <EuiText color="#f9744e">
                       <i
-                        style={socialIcons}
                         className="social-icons fa-brands fa-facebook"
                       ></i>
                     </EuiText>
                   </EuiLink>
                 </EuiFlexItem>
                 <EuiFlexItem grow={false}>
-                  <EuiLink href="#">
+                  <EuiLink href="#" target="_blank" className="social-links">
                     <EuiText color="#7dd656">
                       <i
-                        style={socialIcons}
                         className="social-icons fa-brands fa-twitter"
                       ></i>
                     </EuiText>
                   </EuiLink>
                 </EuiFlexItem>
                 <EuiFlexItem grow={false}>
-                  <EuiLink href="#">
+                  <EuiLink href="#" target="_blank" className="social-links">
                     <EuiText color="#ffde59">
                       <i
-                        style={socialIcons}
                         className="social-icons fa-brands fa-linkedin"
                       ></i>
                     </EuiText>
                   </EuiLink>
                 </EuiFlexItem>
                 <EuiFlexItem grow={false}>
-                  <EuiLink href="#">
+                  <EuiLink href="#" target="_blank" className="social-links">
                     <EuiText color="#c96ae3">
                       <i
-                        style={socialIcons}
                         className="social-icons fa-brands fa-instagram"
                       ></i>
                     </EuiText>

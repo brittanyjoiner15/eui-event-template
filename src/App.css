@@ -14,6 +14,16 @@
     padding: 5px 0;
 }
 
+/* css for social icons in the footer */
+
+.social-icons {
+ font-size: 30px;
+}
+
+.social-links svg{
+    display: none;
+}
+
 .speaker-card {
     transition: 0.2s all linear;
 }

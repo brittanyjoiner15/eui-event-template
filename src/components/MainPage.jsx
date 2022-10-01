@@ -12,27 +12,43 @@ import EventDetails from "./panels/EventDetails";
 import SpeakersPanel from "./panels/SpeakersPanel";
 import TalksPanel from "./panels/TalksPanel";
 import Navbar from "./Navbar";
-import { Routes, Route } from 'react-router-dom'
+import RecordingsPanel from "./panels/RecordingsPanel";
+import { Routes, Route } from "react-router-dom";
 import history from "../utilities/history";
 
 function MainPage() {
-
-
   const tabs = [
     {
-      id: "event",  
+      id: "event",
       label: "Event Details",
-      onClick: () => {history.push('/events'); window.location.reload();},
+      onClick: () => {
+        history.push("/events");
+        window.location.reload();
+      },
     },
     {
-      id: "speakers",    
+      id: "speakers",
       label: "Speakers",
-      onClick: () =>{history.push('/speakers'); window.location.reload();},
+      onClick: () => {
+        history.push("/speakers");
+        window.location.reload();
+      },
     },
     {
-      id: "talks",   
+      id: "talks",
       label: "Talks",
-      onClick: () => {history.push('/talks'); window.location.reload();},  
+      onClick: () => {
+        history.push("/talks");
+        window.location.reload();
+      },
+    },
+    {
+      id: "recordings",
+      label: "Recordings",
+      onClick: () => {
+        history.push("/recordings");
+        window.location.reload();
+      },
     },
   ];
 
@@ -40,7 +56,7 @@ function MainPage() {
     <EuiPage paddingSize="none">
       <EuiFlexGroup className="eui-fullHeight">
         <EuiPageBody panelled>
-        <Navbar tabs={tabs} /> 
+          <Navbar tabs={tabs} />
           <EuiPageContent
             hasBorder={false}
             hasShadow={false}
@@ -49,13 +65,14 @@ function MainPage() {
             borderRadius="none"
             verticalPosition="center"
             horizontalPosition="center"
-          > 
+          >
             <EuiPageContentBody>
               <Routes>
-                <Route path='/' element={<EventDetails />} />
-                <Route path='/events' element={<EventDetails />} />
-                <Route path='/speakers' element={<SpeakersPanel />} />
-                <Route path='/talks' element={<TalksPanel />} />  
+                <Route path="/" element={<EventDetails />} />
+                <Route path="/events" element={<EventDetails />} />
+                <Route path="/speakers" element={<SpeakersPanel />} />
+                <Route path="/talks" element={<TalksPanel />} />
+                <Route path="/recordings" element={<RecordingsPanel />} />
               </Routes>
             </EuiPageContentBody>
             <EuiSpacer size="l" />

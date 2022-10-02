@@ -1,3 +1,4 @@
+# Readme
 ## Happy Hacktoberfest!!
 
 _I remember my first Hacktoberfest so clearly because I was so intimidated by Git and contributing code to other repos, and I was still VERY early in my coding journey and didn't even know how to code, but enjoyed the experience so much!_
@@ -34,11 +35,21 @@ Follow these steps to connect your google sheets file with the app.
 ### 1. Create a google sheet
 
 #### 1. Go to https://docs.google.com/ and create a blank sheet
-#### 2. Add name, title, team, location, shortBio, pronouns, imageLink headers in the sheet.
+#### 2. Add name, title, team, location, shortBio, pronouns, imageLink headers in the sheet (make sure the order of headers is same as in the example sheet provided below).
 #### 3. Populate the sheet with some data.
-#### 4. Change the sheet name to "Speakers" (Name is case sensitive).
+##### Data Schema
+    name : string
+    title: string
+    team: string
+    location: string
+    shortBio: string
+    pronouns: string
+    imageLink: string (url of hosted image)
+#### 4. Change the sheet name to "Speakers" (Sheet name "Speakers" is case sensitive).
 
 ![](https://i.postimg.cc/MGPDVgkF/Sheet-Demo.jpg)
+### Example sheet 
+https://docs.google.com/spreadsheets/d/1XgyHXaReTZ3Nq_r7QS18GDvqK_ht010QqnI6PXAnePA/edit?usp=sharing
 
 
 ### 2. Deploy App Script Web App
@@ -86,8 +97,10 @@ Follow these steps to connect your google sheets file with the app.
 
 #### 8. Add Description.
 #### 9. Select Anyone in who has access section and click deploy.
-#### 10. Allow all permission if asked.
+#### 10. Authorize access. 
+##### Google might say it's an unverified app and tell you to go back to safety its because the app that you are creating will have access to your sheet data but since you are developing the application so essentially you are accessing your data only, which is totally safe. 
 #### 11. Copy the Web URL.
+##### Make sure you **do not share the Web URL** with anyone else because if you do so then that person can access your data.
 ![](https://i.postimg.cc/1Xzq937C/Copy-url.jpg)
 
 ### 3. Configure local project

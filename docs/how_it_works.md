@@ -23,6 +23,8 @@
   - Talks TBD
     - Panel that can be used before talks are available
     - Shows a CTA with information about submitting a talk and a link to a google form
+  - FAQs
+    - Panel to provide useful information to attendees and interested parties about the conference
 - NavBar
   - Uses `EuiPageHeader` to create bar with icon, text, and buttons
 - Footer/Bottom Bar

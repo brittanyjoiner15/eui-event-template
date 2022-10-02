@@ -8,6 +8,7 @@ import {
 import React from "react";
 import { addCalButtons } from "../../utilities/addCalButtons";
 import { sessionOne, sessionTwo } from "../../data/consts";
+import heroImage from "../../images/hero-image.webp"
 
 export default class EventDetails extends React.Component {
   renderHero = () => {
@@ -15,7 +16,7 @@ export default class EventDetails extends React.Component {
       <EuiImage
         size="original"
         alt="Rainbow Stack Summit banner"
-        src="https://firebasestorage.googleapis.com/v0/b/photo-url-generator-e736c.appspot.com/o/posts%2FUiuFw9e4h0ML4Felqkcp%2Fimage?alt=media&token=0575d483-9b65-4afa-b8cb-d9ac5336499a"
+        src={heroImage}
       />
     );
   };
@@ -25,8 +26,7 @@ export default class EventDetails extends React.Component {
       <EuiEmptyPrompt
         title={
           <span>
-            Bringing Rainbow Stack members together to share ideas, learn from
-            each other, and have fun together!
+            Identity theft is not a joke. Millions of famillies suffer every year. 
           </span>
         }
         body={

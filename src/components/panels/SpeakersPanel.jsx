@@ -37,7 +37,7 @@ function SpeakersPanel() {
         >
           {speakers.map((speaker) => {
             return (
-              <EuiFlexItem>
+              <EuiFlexItem className="speaker-card">
                 <EuiCard
                   aria-label={speaker.name}
                   image={<EuiImage size="m" src={speaker.imageLink}></EuiImage>}

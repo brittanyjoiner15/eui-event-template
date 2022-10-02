@@ -13,7 +13,7 @@ import SpeakersPanel from "./panels/SpeakersPanel";
 import TalksPanel from "./panels/TalksPanel";
 import Navbar from "./Navbar";
 
-function MainPage() {
+function MainPage(props) {
   const [selectedTab, setSelectedTab] = useState("event");
 
   const onSelectedTabChanged = (id) => {
@@ -73,7 +73,12 @@ function MainPage() {
     <EuiPage paddingSize="none">
       <EuiFlexGroup className="eui-fullHeight">
         <EuiPageBody panelled>
-          <Navbar tabs={tabs} onLogoClick={onLogoClick} />
+          <Navbar
+            tabs={tabs}
+            onLogoClick={onLogoClick}
+            theme={props.theme}
+            toggleTheme={props.toggleTheme}
+          />
           <EuiPageContent
             hasBorder={false}
             hasShadow={false}

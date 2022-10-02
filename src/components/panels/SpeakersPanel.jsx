@@ -8,10 +8,11 @@ import {
 } from "@elastic/eui";
 import React from "react";
 import { useEffect } from "react";
-// import { speakers } from "../../data/speakers";
 import axios from 'axios'
 import { useState } from "react";
 import {webAppUrl as url} from '../../utilities/env' 
+
+// speaker data lives in this spreadsheet: https://docs.google.com/spreadsheets/d/1XgyHXaReTZ3Nq_r7QS18GDvqK_ht010QqnI6PXAnePA/edit#gid=0
 
 function SpeakersPanel() {
 

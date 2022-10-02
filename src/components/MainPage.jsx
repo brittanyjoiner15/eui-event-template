@@ -6,13 +6,13 @@ import {
   EuiPageContentBody,
   EuiSpacer,
 } from "@elastic/eui";
-import { React, useCallback, useState } from "react";
+import Navbar from "./Navbar";
 import BottomBar from "./BottomBar";
 import EventDetails from "./panels/EventDetails";
 import SpeakersPanel from "./panels/SpeakersPanel";
 import TalksPanel from "./panels/TalksPanel";
-import Navbar from "./Navbar";
 import RecordingsPanel from "./panels/RecordingsPanel";
+import FAQsPanel from "./panels/FAQsPanel";
 import { Routes, Route } from "react-router-dom";
 import history from "../utilities/history";
 
@@ -50,6 +50,14 @@ function MainPage() {
         window.location.reload();
       },
     },
+    {
+      id: "faq",
+      label: "FAQs",
+      onClick: () => {
+        history.push("/faq");
+        window.location.reload();
+      },
+    },
   ];
 
   return (
@@ -73,6 +81,7 @@ function MainPage() {
                 <Route path="/speakers" element={<SpeakersPanel />} />
                 <Route path="/talks" element={<TalksPanel />} />
                 <Route path="/recordings" element={<RecordingsPanel />} />
+                <Route path="/faq" element={<FAQsPanel />} />
               </Routes>
             </EuiPageContentBody>
             <EuiSpacer size="l" />

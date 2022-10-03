@@ -5,6 +5,7 @@ import {
   EuiPageContent,
   EuiPageContentBody,
   EuiSpacer,
+  EuiText,
 } from "@elastic/eui";
 import Navbar from "./Navbar";
 import BottomBar from "./BottomBar";
@@ -15,12 +16,13 @@ import RecordingsPanel from "./panels/RecordingsPanel";
 import FAQsPanel from "./panels/FAQsPanel";
 import { Routes, Route } from "react-router-dom";
 import history from "../utilities/history";
+import { getColorTheme } from "../utilities/colors";
 
-function MainPage() {
+function MainPage(props) {
   const tabs = [
     {
       id: "event",
-      label: "Event Details",
+      label: <EuiText color={getColorTheme("text",props.theme)}>Event Details</EuiText>,
       onClick: () => {
         history.push("/events");
         window.location.reload();
@@ -28,7 +30,7 @@ function MainPage() {
     },
     {
       id: "speakers",
-      label: "Speakers",
+      label: <EuiText color={getColorTheme("text",props.theme)}>Speakers</EuiText>,
       onClick: () => {
         history.push("/speakers");
         window.location.reload();
@@ -36,7 +38,7 @@ function MainPage() {
     },
     {
       id: "talks",
-      label: "Talks",
+      label: <EuiText color={getColorTheme("text",props.theme)}>Talks</EuiText>,
       onClick: () => {
         history.push("/talks");
         window.location.reload();
@@ -44,7 +46,7 @@ function MainPage() {
     },
     {
       id: "recordings",
-      label: "Recordings",
+      label: <EuiText color={getColorTheme("text",props.theme)}>Recordings</EuiText>,
       onClick: () => {
         history.push("/recordings");
         window.location.reload();
@@ -52,7 +54,7 @@ function MainPage() {
     },
     {
       id: "faq",
-      label: "FAQs",
+      label: <EuiText color={getColorTheme("text",props.theme)}>FAQs</EuiText>,
       onClick: () => {
         history.push("/faq");
         window.location.reload();
@@ -64,7 +66,7 @@ function MainPage() {
     <EuiPage paddingSize="none">
       <EuiFlexGroup className="eui-fullHeight">
         <EuiPageBody panelled>
-          <Navbar tabs={tabs} />
+          <Navbar tabs={tabs} theme={props.theme} toggleTheme={props.toggleTheme} />
           <EuiPageContent
             hasBorder={false}
             hasShadow={false}
@@ -86,7 +88,7 @@ function MainPage() {
             </EuiPageContentBody>
             <EuiSpacer size="l" />
           </EuiPageContent>
-          <BottomBar />
+          <BottomBar theme={props.theme}/>
         </EuiPageBody>
       </EuiFlexGroup>
     </EuiPage>

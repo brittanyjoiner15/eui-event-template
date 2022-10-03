@@ -108,3 +108,44 @@ h1.euiTitle{
 .euiAccordion > .euiAccordion__triggerWrapper > .euiButtonIcon.euiButtonIcon--text.euiAccordion__iconButton-isOpen > svg {
     color: var(--color-accent) !important;
 }
+
+.themeButton {
+    cursor: pointer;
+    width: 50px;
+    height: 26px;
+    background-color: rgba(118, 109, 160, 0.5);
+    display: flex;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    position: relative;
+    transform: scale(1.5);
+  }
+  
+  .moon {
+    color: pink;
+  }
+  
+  .sun {
+    color: yellow;
+  }
+  
+  .ball {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+  }
+  
+  .ball.light{
+    transform: translateX(0px);
+  }
+  
+  .ball.dark{
+    transform: translateX(24px);
+  }

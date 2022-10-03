@@ -1,6 +1,6 @@
 import { EuiProvider } from "@elastic/eui";
 import "@elastic/eui/dist/eui_theme_dark.css";
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import MainPage from "./components/MainPage";
 import history from "./utilities/history";
@@ -10,6 +10,7 @@ function App() {
   React.useEffect( () => {
     // routes user to home page when clicking the rainbowCluster icon
     let element = document.getElementsByClassName("euiIcon") 
+    console.log("use Effect")
     for(let i = 0; i < element.length; i++)
       element[i].addEventListener("click", () => {
         history.push('/'); 
@@ -17,9 +18,16 @@ function App() {
       })
   }, []);
 
+    
+  const [theme, setTheme] = useState("dark");
+    const toggleTheme = () =>{
+    setTheme((curr)=>(curr==="dark" ? "light" : "dark"))
+    }
+
+
   return (
-    <EuiProvider colorMode="dark">
-      <MainPage />
+    <EuiProvider colorMode={theme}>
+      <MainPage theme={theme} toggleTheme={toggleTheme}/>
     </EuiProvider>
   );
 }

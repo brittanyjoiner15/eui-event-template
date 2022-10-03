@@ -11,6 +11,8 @@ const light = {
   darkShade: "#69707d",
   darkestShade: "#343741",
   fullShade: "#000",
+  bb_bgColor: "#D3D3D3",
+  text: "#000",
 };
 
 const dark = {
@@ -26,14 +28,18 @@ const dark = {
   darkShade: "#98a2b3",
   darkestShade: "#d4dae5",
   fullShade: "#fff",
+  bb_bgColor: "#5A5A5A",
+  text: "#ffffff",
 };
 
 const usingDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 const getColor = (color) => (usingDarkMode ? dark[color] : light[color]);
+const getColorTheme = (color,theme) => (theme==="dark" ? dark[color] : light[color]);
 
 export {
   light,
   dark,
   usingDarkMode,
   getColor,
+  getColorTheme,
 };

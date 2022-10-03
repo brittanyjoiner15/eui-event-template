@@ -18,6 +18,9 @@ If you want to use this template for your own event, here is everything that you
 
 - [ ] **Replace hero title and subtitle:** Go to [speakers.js](https://github.com/brittanyjoiner15/eui-event-template/blob/8cefe4c73b1dea7f5fa33c6bd15071cb1bbae463/src/data/speakers.js#L8). Within the _speakers array_, each speaker is listed as an object. Overwrite the placeholder information with your the actual information of your event’s speakers. If you want to add more speakers, add an additional object to the array. If you want to decrease the placeholder speakers, just remove the objects from the speakers array. 
 
+### Speaker Details:
+
+
 - [ ] **Change speaker avatar:** Go to the [images](https://github.com/brittanyjoiner15/eui-event-template/tree/8cefe4c73b1dea7f5fa33c6bd15071cb1bbae463/src/images) folder. Delete the placeholder avatars. Add the avatars of your actual speakers to the images folder. Then go to [speakers.js](https://github.com/brittanyjoiner15/eui-event-template/blob/8cefe4c73b1dea7f5fa33c6bd15071cb1bbae463/src/data/speakers.js#L1) and import the avatars of the respective speakers from the images folder. Then replace the placeholder avatar in the speaker objects with your actual avatars.
 
 - [ ] **Change speaker layout:** This is an optional change. Depending on the number of speakers in your event, you may want to change the layout of the speakers section. Go to [SpeakersPanel.jsx](https://github.com/brittanyjoiner15/eui-event-template/blob/8cefe4c73b1dea7f5fa33c6bd15071cb1bbae463/src/components/panels/SpeakersPanel.jsx#L52) and replace the value of columns attribute within the EuiFlexGrid tag. The current placeholder value is 3, which is why the speaker section renders with 3 columns.  

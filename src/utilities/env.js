@@ -1,1 +1,2 @@
-export const webAppUrl = "https://script.google.com/macros/s/AKfycbwn4J8GTBLoGahbPpytUTSFL0bY3idy6hONWqc6h89eZiaC-m65smI7u09_GD6Ii5Tz/exec"
+export const webAppUrl =
+  "https://script.google.com/macros/s/AKfycbycl4s9ddAGCMxnSxF9rAR0i7wK8O4eWvuRlmPY5IJTXOvMyaYhnNo5Vnj6z98BWifa/exec";

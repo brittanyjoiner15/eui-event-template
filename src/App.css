@@ -58,12 +58,12 @@
 }
 
 .xMargin {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 20px !important ;
+    margin-right: 20px !important ;
 }
 
 .maxWidth {
-    max-width: 100px;
+    max-width: 100px !important ;
 }
 
 .speaker-info {
@@ -124,11 +124,11 @@ h1.euiTitle{
   }
   
   .moon {
-    color: pink;
+    color: pink !important;
   }
   
   .sun {
-    color: yellow;
+    color: yellow !important;
   }
   
   .ball {

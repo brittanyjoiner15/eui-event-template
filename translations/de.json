@@ -1,14 +1,14 @@
 {
-  "Event Details": "Veranstaltungsdetails"
-  "Speakers": "Vortragende"
-  "Talks": "Vorträge"
-  "Recordings": "Aufzeichnungen"
-  "FAQs/Frequently Asked Questions": "FAQ/häufig gestellte Fragen"
-  "Save the {date} session": "Folgende Sitzung speichern: {date}"
-  "Sign up for updates": "Einloggen für Updates"
-  "Join the slack group": "Trete der Slack Gruppe bei"
-  "Show times in EDT": "zeige Uhrzeiten in Zeitzone EDT an"
-  "Show times in Local": "zeige Uhrzeiten in lokaler Zeitzone an",
+  "eventDetails": "Veranstaltungsdetails"
+  "speakers": "Vortragende"
+  "talks": "Vorträge"
+  "recordings": "Aufzeichnungen"
+  "faq": "FAQ/häufig gestellte Fragen"
+  "saveDate": "Folgende Sitzung speichern: {date}"
+  "signUp": "Einloggen für Updates"
+  "joinSlack": "Trete der Slack Gruppe bei"
+  "showDatesEDT": "zeige Uhrzeiten in Zeitzone EDT an"
+  "showDatesLocal": "zeige Uhrzeiten in lokaler Zeitzone an",
   "session": "Sitzung",
   "time": "Uhrzeit",
   "title": "Titel",

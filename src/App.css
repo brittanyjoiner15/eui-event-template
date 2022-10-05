@@ -120,6 +120,7 @@ h1.euiTitle{
     justify-content: space-between;
     padding: 5px;
     position: relative;
+    top:8px;
     transform: scale(1.5);
   }
   
@@ -128,7 +129,7 @@ h1.euiTitle{
   }
   
   .sun {
-    color: yellow !important;
+    color: #FFFF00 !important;
   }
   
   .ball {
@@ -140,6 +141,10 @@ h1.euiTitle{
     left: 2px;
     border-radius: 50%;
     transition: transform 0.2s linear;
+  }
+  
+  .preload{
+    transition-duration: 0ms;
   }
   
   .ball.light{

@@ -21,16 +21,20 @@ import {
 import React, { useState } from "react";
 import { webAppUrl as url } from "../utilities/env";
 
+// sign-up data lives in this spreadsheet: https://docs.google.com/spreadsheets/d/1XgyHXaReTZ3Nq_r7QS18GDvqK_ht010QqnI6PXAnePA/edit#gid=1988825686
+
 export default () => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [disabled, setIsDisabled] = useState(true);
-  const [toasts, setToasts] = useState([]);
+  const [isModalVisible, setIsModalVisible] = useState(false); // show of modal
+  const [isValidName, setIsValidName] = useState(false); // valid name or not
+  const [isValidEmail, setIsValidEmail] = useState(false); // valid email or not
+  const [loading, setIsLoading] = useState(false); // loading screen to show or not
+  const [toasts, setToasts] = useState([]); // toast messages we can append in here, they will show top of 'em
 
   const addToastHandler = () => {
     const toast = {
       title: "Successfully Signed Up",
       color: "success",
-      text: <p>Thanks for subscribing to us!</p>,
+      text: <p>Thanks for registering!</p>,
     };
     setToasts(toasts.concat(toast));
   };
@@ -44,22 +48,29 @@ export default () => {
     email: "",
   });
 
-  const validateEmailName = (email, name) => {
-    if (!email.includes("@") || !email.includes(".") || name == "")
-      return false;
-    return true;
+  const validateName = (name) => {
+    // empty, numbers and special characters ❌
+    // multiple words ✅
+    let validRegex = /^[A-Za-z]+([\ A-Za-z]+)*/;
+    if (!name.match(validRegex)) return setIsValidName(false);
+    return setIsValidName(true);
+  };
+
+  const validateEmail = (email) => {
+    // @ at starting ❌
+    // com,in after dot take care of ❌
+    // dot before and then @ ❌
+    let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (!email.match(validRegex)) return setIsValidEmail(false);
+    return setIsValidEmail(true);
   };
 
   const formHandler = async (e) => {
     e.preventDefault();
-    if (validateEmailName(user.email, user.name)) {
-      setIsDisabled(false);
-    } else {
-      setIsDisabled(true);
-      return;
-    }
+    setIsLoading(true);
     try {
       const data = await fetch(`${url}?action=signup`, {
+        // signup is the function name in our appscript logic.
         redirect: "follow", // ** IMP ** Otherwise Gives CORS error.
         method: "POST",
         body: JSON.stringify(user),
@@ -71,6 +82,7 @@ export default () => {
     } catch (err) {
       console.log(err);
     }
+    setIsLoading(false);
     closeModal();
     setUser({
       name: "",
@@ -79,16 +91,12 @@ export default () => {
   };
 
   const inputHandler = (e) => {
+    if (e.target.name === "name") validateName(e.target.value);
+    if (e.target.name === "email") validateEmail(e.target.value);
     setUser((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
-    if (validateEmailName(user.email, user.name)) {
-      setIsDisabled(false);
-    } else {
-      setIsDisabled(true);
-      return;
-    }
   };
 
   const modalFormId = useGeneratedHtmlId({ prefix: "modalForm" });
@@ -97,31 +105,29 @@ export default () => {
 
   const showModal = () => setIsModalVisible(true);
 
-  let errors;
-
-  if (disabled) {
-    errors = ["Enter Valid Name", "Enter Valid Email"];
-  }
+  let errors = ["Invalid Name", "Invalid Email"];
 
   const formSample = (
-    <EuiForm id={modalFormId} component="form" error={errors}>
-      <EuiFormRow label="Name">
+    <EuiForm id={modalFormId} component="form">
+      <EuiFormRow label="Name" isInvalid={!isValidName} error={errors[0]}>
         <EuiFieldText
           name="name"
           onChange={inputHandler}
           value={user.name}
           placeholder="Your Full Name"
           autoComplete="off"
+          isInvalid={!isValidName}
         />
       </EuiFormRow>
 
-      <EuiFormRow label="Email">
+      <EuiFormRow label="Email" isInvalid={!isValidEmail} error={errors[1]}>
         <EuiFieldText
           name="email"
           onChange={inputHandler}
           value={user.email}
           autoComplete="off"
           placeholder="Your Email"
+          isInvalid={!isValidEmail}
         />
       </EuiFormRow>
     </EuiForm>
@@ -132,27 +138,47 @@ export default () => {
   if (isModalVisible) {
     modal = (
       <EuiModal onClose={closeModal} initialFocus="[name=name]">
-        <EuiModalHeader>
-          <EuiModalHeaderTitle>
-            <h1>Sign Up</h1>
-          </EuiModalHeaderTitle>
-        </EuiModalHeader>
+        {loading ? (
+          <>
+            <EuiModalHeader>
+              <EuiModalHeaderTitle>
+                <h1>Sending Over The Details...😍</h1>
+              </EuiModalHeaderTitle>
+            </EuiModalHeader>
 
-        <EuiModalBody>{formSample}</EuiModalBody>
+            <EuiModalBody>
+              <h2>👋🏻 {user.name}, wish you a great day!</h2>
+            </EuiModalBody>
 
-        <EuiModalFooter>
-          <EuiButtonEmpty onClick={closeModal}>Cancel</EuiButtonEmpty>
+            <EuiModalFooter>
+              <EuiButtonEmpty onClick={closeModal}>Close</EuiButtonEmpty>
+            </EuiModalFooter>
+          </>
+        ) : (
+          <>
+            <EuiModalHeader>
+              <EuiModalHeaderTitle>
+                <h1>Sign Up</h1>
+              </EuiModalHeaderTitle>
+            </EuiModalHeader>
 
-          <EuiButton
-            type="submit"
-            disabled={disabled}
-            form={modalFormId}
-            onClick={formHandler}
-            fill
-          >
-            Send Details 🙌🏻
-          </EuiButton>
-        </EuiModalFooter>
+            <EuiModalBody>{formSample}</EuiModalBody>
+
+            <EuiModalFooter>
+              <EuiButtonEmpty onClick={closeModal}>Cancel</EuiButtonEmpty>
+
+              <EuiButton
+                type="submit"
+                disabled={!isValidEmail || !isValidName}
+                form={modalFormId}
+                onClick={formHandler}
+                fill
+              >
+                Save My Spot 🙌🏻
+              </EuiButton>
+            </EuiModalFooter>
+          </>
+        )}
       </EuiModal>
     );
   }
@@ -216,7 +242,7 @@ export default () => {
                 <EuiGlobalToastList
                   toasts={toasts}
                   dismissToast={removeToast}
-                  toastLifeTimeMs={4000}
+                  toastLifeTimeMs={2500}
                 />
               </EuiFlexItem>
               <EuiFlexItem grow={false}>

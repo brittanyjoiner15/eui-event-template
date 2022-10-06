@@ -6,7 +6,6 @@ import { sessionOne, sessionTwo, eventIcon } from "../data/consts";
 import history from "../utilities/history";
 
 export default function Navbar(props) {
-  
   return (
     <>
       <EuiPageHeader
@@ -17,7 +16,11 @@ export default function Navbar(props) {
         }}
         pageTitle="IDT Conference"
         pageTitleProps={{
-          css: { cursor: "pointer", userSelect: "none" },
+          css: {
+            cursor: "pointer",
+            userSelect: "none",
+            maxWidth: "310px",
+          },
           onClick: () => {
             history.push("/");
             window.location.reload();

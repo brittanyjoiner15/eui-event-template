@@ -20,6 +20,7 @@ import {
 } from "@elastic/eui";
 import React, { useState } from "react";
 import { webAppUrl as url } from "../utilities/env";
+import { getColorTheme } from "../utilities/colors";
 
 // sign-up data lives in this spreadsheet: https://docs.google.com/spreadsheets/d/1XgyHXaReTZ3Nq_r7QS18GDvqK_ht010QqnI6PXAnePA/edit#gid=1988825686
 
@@ -185,16 +186,18 @@ export default () => {
 
   return (
     <>
-      <EuiBottomBar position="static">
-        <EuiFlexGroup alignItems="center" justifyContent="spaceBetween">
-          <EuiFlexItem grow={false}>
-            <EuiText>
-              <h4>
-                Hosted by Dunder Mifflin and Parks and Recreation Department
-              </h4>
-            </EuiText>
-            <EuiText>Group for all paper enthusiasts and bureaucrats</EuiText>
-          </EuiFlexItem>
+      <EuiBottomBar position="static" style={{ backgroundColor: `${getColorTheme("bb_bgColor", this.props.theme)}`,}}>
+          <EuiFlexGroup alignItems="center" justifyContent="spaceBetween">
+            <EuiFlexItem grow={false} >
+              <EuiText color={getColorTheme("text", this.props.theme)}>
+                <h4>
+                  Hosted by Dunder Mifflin and Parks and Recreation Department
+                </h4>
+              </EuiText>
+              <EuiText color={getColorTheme("text", this.props.theme)}>
+                Group for all paper enthusiasts and bureaucrats
+              </EuiText>
+            </EuiFlexItem>
           <EuiFlexItem grow={false}>
             <EuiFlexGroup
               direction="row"

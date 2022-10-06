@@ -57,7 +57,7 @@ const FaqAccordionRow = ({ question, detail, answer }) => {
 }
 
 export default function FAQsPanel() {
-  const [isXs, isS, isM] = [useIsXs(), useIsS(), useIsM()];
+  const [isXs, isS] = [useIsXs(), useIsS(), useIsM()];
   const pageTitleSize = isXs ? "xs" : isS ? "s" : "m";
 
   return (

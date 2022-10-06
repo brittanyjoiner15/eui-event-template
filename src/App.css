@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Inter');
+@import url("https://fonts.googleapis.com/css?family=Inter");
 
 :root {
     /* exposing EUI colors as css variables */
@@ -58,12 +58,12 @@
 }
 
 .xMargin {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 20px !important ;
+    margin-right: 20px !important ;
 }
 
 .maxWidth {
-    max-width: 100px;
+    max-width: 100px !important ;
 }
 
 .speaker-info {
@@ -108,3 +108,49 @@ h1.euiTitle{
 .euiAccordion > .euiAccordion__triggerWrapper > .euiButtonIcon.euiButtonIcon--text.euiAccordion__iconButton-isOpen > svg {
     color: var(--color-accent) !important;
 }
+
+.themeButton {
+    cursor: pointer;
+    width: 50px;
+    height: 26px;
+    background-color: rgba(118, 109, 160, 0.5);
+    display: flex;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    position: relative;
+    top:8px;
+    transform: scale(1.5);
+  }
+  
+  .moon {
+    color: pink !important;
+  }
+  
+  .sun {
+    color: #FFFF00 !important;
+  }
+  
+  .ball {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+  }
+  
+  .preload{
+    transition-duration: 0ms;
+  }
+  
+  .ball.light{
+    transform: translateX(0px);
+  }
+  
+  .ball.dark{
+    transform: translateX(24px);
+  }

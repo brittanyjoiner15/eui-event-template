@@ -15,8 +15,9 @@ import RecordingsPanel from "./panels/RecordingsPanel";
 import FAQsPanel from "./panels/FAQsPanel";
 import { Routes, Route } from "react-router-dom";
 import history from "../utilities/history";
+import { getColorTheme } from "../utilities/colors";
 
-function MainPage() {
+function MainPage(props) {
   const tabs = [
     {
       id: "event",
@@ -64,7 +65,11 @@ function MainPage() {
     <EuiPage paddingSize="none">
       <EuiFlexGroup className="eui-fullHeight">
         <EuiPageBody panelled>
-          <Navbar tabs={tabs} />
+          <Navbar
+            tabs={tabs}
+            theme={props.theme}
+            toggleTheme={props.toggleTheme}
+          />
           <EuiPageContent
             hasBorder={false}
             hasShadow={false}
@@ -86,7 +91,7 @@ function MainPage() {
             </EuiPageContentBody>
             <EuiSpacer size="l" />
           </EuiPageContent>
-          <BottomBar />
+          <BottomBar theme={props.theme} />
         </EuiPageBody>
       </EuiFlexGroup>
     </EuiPage>

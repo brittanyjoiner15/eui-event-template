@@ -3,7 +3,7 @@
 #### Link to issue this resolves
 
 <!--- Add you issue no. or link of the issue --->
-
+Fixes {REPLACE THIS WITH A LINK TO YOUR ISSUE}
 #### Screenshot of changes(if relevant)
 
 <!--- Complete this checklist before opening this PR!  -->

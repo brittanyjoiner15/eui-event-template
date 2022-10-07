@@ -6,74 +6,70 @@ import {
   EuiPageContentBody,
   EuiSpacer,
 } from "@elastic/eui";
-import { React, useCallback, useState } from "react";
+import Navbar from "./Navbar";
 import BottomBar from "./BottomBar";
 import EventDetails from "./panels/EventDetails";
 import SpeakersPanel from "./panels/SpeakersPanel";
 import TalksPanel from "./panels/TalksPanel";
-import Navbar from "./Navbar";
+import RecordingsPanel from "./panels/RecordingsPanel";
+import FAQsPanel from "./panels/FAQsPanel";
+import { Routes, Route } from "react-router-dom";
+import history from "../utilities/history";
+import { getColorTheme } from "../utilities/colors";
 
-function MainPage() {
-  const [selectedTab, setSelectedTab] = useState("event");
-
-  const onSelectedTabChanged = (id) => {
-    setSelectedTab(id);
-  };
-
-  const showSelectedContent = () => {
-    switch (selectedTab) {
-      case "event":
-        return tabs[0].content;
-      case "speakers":
-        return tabs[1].content;
-      case "talks":
-        return tabs[2].content;
-      default:
-        return tabs[0].content;
-    }
-  };
-
+function MainPage(props) {
   const tabs = [
     {
       id: "event",
-      isSelected: selectedTab === "event",
       label: "Event Details",
-      onClick: () => onSelectedTabChanged("event"),
-      content: (
-        <>
-          <EventDetails />
-        </>
-      ),
+      onClick: () => {
+        history.push("/events");
+        window.location.reload();
+      },
     },
     {
       id: "speakers",
-      isSelected: selectedTab === "speakers",
       label: "Speakers",
-      onClick: () => onSelectedTabChanged("speakers"),
-      content: (
-        <>
-          <SpeakersPanel />
-        </>
-      ),
+      onClick: () => {
+        history.push("/speakers");
+        window.location.reload();
+      },
     },
     {
       id: "talks",
-      isSelected: selectedTab === "talks",
       label: "Talks",
-      onClick: () => onSelectedTabChanged("talks"),
-      content: <TalksPanel />,
+      onClick: () => {
+        history.push("/talks");
+        window.location.reload();
+      },
+    },
+    {
+      id: "recordings",
+      label: "Recordings",
+      onClick: () => {
+        history.push("/recordings");
+        window.location.reload();
+      },
+    },
+    {
+      id: "faq",
+      label: "FAQs",
+      onClick: () => {
+        history.push("/faq");
+        window.location.reload();
+      },
     },
   ];
-
-  const onLogoClick = useCallback(() => {
-    onSelectedTabChanged("event");
-  }, []);
 
   return (
     <EuiPage paddingSize="none">
       <EuiFlexGroup className="eui-fullHeight">
         <EuiPageBody panelled>
-          <Navbar tabs={tabs} onLogoClick={onLogoClick} />
+          <Navbar
+            tabs={tabs}
+            theme={props.theme}
+            toggleTheme={props.toggleTheme}
+          />
           <EuiPageContent
             hasBorder={false}
             hasShadow={false}
@@ -83,10 +79,19 @@ function MainPage() {
             verticalPosition="center"
             horizontalPosition="center"
           >
-            <EuiPageContentBody>{showSelectedContent()}</EuiPageContentBody>
+            <EuiPageContentBody>
+              <Routes>
+                <Route path="/" element={<EventDetails />} />
+                <Route path="/events" element={<EventDetails />} />
+                <Route path="/speakers" element={<SpeakersPanel />} />
+                <Route path="/talks" element={<TalksPanel />} />
+                <Route path="/recordings" element={<RecordingsPanel />} />
+                <Route path="/faq" element={<FAQsPanel />} />
+              </Routes>
+            </EuiPageContentBody>
             <EuiSpacer size="l" />
           </EuiPageContent>
-          <BottomBar />
+          <BottomBar theme={props.theme} />
         </EuiPageBody>
       </EuiFlexGroup>
     </EuiPage>

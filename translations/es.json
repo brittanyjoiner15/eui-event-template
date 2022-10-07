@@ -1,0 +1,19 @@
+{
+    "eventDetails": "Información del evento",
+    "speakers": "Ponentes",
+    "talks": "Charlas",
+    "recordings": "Grabaciones",
+    "faq": "Preguntas frecuentes",
+    "saveDate": "Reserva la sesión",
+    "signUp": "Registrate para recibir actualizaciones",
+    "joinSlack": "Unete a nuestro grupo de Slack",
+    "showDatesEDT": "Muestra la agenda en EDT",
+    "showDatesLocal": "Muestra la agenda en tu hora local",
+    "session": "Sesión",
+    "time": "Hora",
+    "title": "Titulo",
+    "description": "Descripción",
+    "speaker": "Ponente",
+    "genre": "Categoría",
+    "actions": "Acciones"
+  }

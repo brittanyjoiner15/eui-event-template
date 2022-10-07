@@ -6,77 +6,60 @@ import {
   EuiFlexGroup,
   EuiFlexItem,
   EuiIcon,
+  EuiLink,
   EuiPanel,
   EuiText,
 } from "@elastic/eui";
 import React from "react";
+import { useState, useEffect } from "react";
 import { talks } from "../../data/talks";
 import { renderGenreTags } from "../../utilities/genreTags";
 import { showTime } from "../../utilities/showLocalTime";
+import axios from 'axios'
+import {webAppUrl as url} from '../../utilities/env' 
 
-export default class TalksPanel extends React.Component {
-  constructor(props) {
-    super(props);
+function TalksPanel() {
+  
+  const [talksData, setTalksData] = useState([])
+  const [showEst, setShowEst] = useState(false)
 
-    this.state = {
-      showEst: false,
-    };
+  const renderShowEstButton = () => {
+    return (
+      <EuiPanel>
+        <EuiButton
+          minWidth={"300px"}
+          iconType="clock"
+          onClick={() => {
+            if (!showEst) {
+              setShowEst(true);
+            } else {
+              setShowEst(false);
+            }
+          }}
+        >
+          Show times in {showEst ? "Local" : "EDT"}
+        </EuiButton>
+      </EuiPanel>
+    );
   }
-
-
-  renderSpeakers = (speakers) => {
-    if (speakers.length > 1) {
-      return speakers.map((speaker) => (
-        <>
-          <EuiFlexGroup>
-            <EuiFlexItem className="speaker-info">
-              <EuiAvatar
-                imageUrl={speaker.avatar}
-                size="s"
-                name={speaker.name}
-                className="xMargin"
-              />
-                <EuiText>{speaker.name}</EuiText>
-            </EuiFlexItem>
-          </EuiFlexGroup>
-        </>
-      ));
-    } else {
-      return (
-        <>
-          <EuiFlexGroup>
-            <EuiFlexItem className="speaker-info">
-              <EuiAvatar
-                imageUrl={speakers[0].avatar}
-                size="s"
-                name={speakers[0].name}
-                className="xMargin"
-              />
-              <EuiText>{speakers[0].name}</EuiText>
-            </EuiFlexItem>
-          </EuiFlexGroup>
-        </>
-      );
-    }
-  };
-
-  columns = [
+  
+  const columns = [
     {
-      field: "sessionDate",
-      name: "Session",
-      render: (sessionDate) => (
-        <EuiBadge color={sessionDate === "Sept 8th" ? "primary" : "success"}>
-          {sessionDate}
+      field: "date",
+      name: "Date",
+      render: (date) => (
+        <EuiBadge color={date === "Sept 8th" ? "primary" : "success"}>
+          {date.split('T')[0]}
         </EuiBadge>
       ),
     },
     {
-      field: "sessionTime",
+      field: "time",
       name: "Time",
-      render: (sessionTime) => (
+      render: (time) => (
         <>
           <EuiIcon type="clock" />
-          {showTime(sessionTime, this.state.showEst)}
+          {showTime(time, showEst)}
         </>
       ),
     },
@@ -91,9 +74,9 @@ export default class TalksPanel extends React.Component {
     {
       field: "speaker",
       name: "Speaker",
-      render: (speaker) => (
+      render: (speaker, speakersImageLink) => (
         <EuiFlexGroup direction="column">
-          {this.renderSpeakers(speaker)}
+          {renderSpeakers(speaker, speakersImageLink)}
         </EuiFlexGroup>
       )
     },
@@ -120,51 +103,75 @@ export default class TalksPanel extends React.Component {
           },
         },
       ],
-    },
+    }
   ];
+  
+  useEffect(() => {
+    const fetchTalksData = async () => {
+      const res = await axios.get(`${url}?sheetName=Talks`)
+      setTalksData(res.data.talks)
+    }
+    fetchTalksData()
+  }, [])
+  
 
-  renderShowEstButton() {
-    return (
-      <EuiPanel>
-        <EuiButton
-          minWidth={"300px"}
-          iconType="clock"
-          onClick={() => {
-            if (!this.state.showEst) {
-              this.setState({ showEst: true });
-            } else {
-              this.setState({ showEst: false });
-            }
-          }}
-        >
-          Show times in {this.state.showEst ? "Local" : "EDT"}
-        </EuiButton>
-      </EuiPanel>
-    );
-  }
-
-  renderTalkTable() {
+  const renderTalkTable = () => {
     return (
       <EuiFlexItem>
-        <EuiBasicTable items={talks} columns={this.columns} hasActions />
+        <EuiBasicTable items={talksData} columns={columns} hasActions />
       </EuiFlexItem>
     );
   }
+  const renderSpeakers = (speakers, data) => {
+    if (speakers.length > 1) {
+      return speakers.map((speakerName, index) => (
+        <>
+          <EuiFlexGroup>
+            <EuiFlexItem className="speaker-info">
+              <EuiAvatar
+                imageUrl={data.speakersImageLink[index]}
+                size="s"
+                name={speakerName}
+                className="xMargin"
+              />
+                <EuiText>{speakerName}</EuiText>
+            </EuiFlexItem>
+          </EuiFlexGroup>
+        </>
+      ));
+    } else {
+      return (
+        <>
+          <EuiFlexGroup>
+            <EuiFlexItem className="speaker-info">
+              <EuiAvatar
+                imageUrl={data.speakersImageLink[0]}
+                size="s"
+                name={speakers[0]}
+                className="xMargin"
+              />
+              <EuiText>{speakers[0].name}</EuiText>
+            </EuiFlexItem>
+          </EuiFlexGroup>
+        </>
+      );
+    }
+  };
 
-  render() {
-    return (
-      <>
-        <EuiFlexGroup
-          gutterSize="l"
-          alignItems="center"
-          justifyContent="flexEnd"
-        >
-          <EuiFlexItem grow={false}>{this.renderShowEstButton()}</EuiFlexItem>
-        </EuiFlexGroup>
-        <EuiFlexGroup className="xMargin">
-          {this.renderTalkTable()}
-        </EuiFlexGroup>
-      </>
-    );
-  }
+  return (
+    <>
+      <EuiFlexGroup
+        gutterSize="l"
+        alignItems="center"
+        justifyContent="flexEnd"
+      >
+        <EuiFlexItem grow={false}>{renderShowEstButton()}</EuiFlexItem>
+      </EuiFlexGroup>
+      <EuiFlexGroup className="xMargin">
+        {renderTalkTable()}
+      </EuiFlexGroup>
+    </>
+  )
 }
+
+export default TalksPanel

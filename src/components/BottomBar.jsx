@@ -6,21 +6,22 @@ import {
   EuiText,
   EuiLink,
 } from "@elastic/eui";
+import { getColorTheme } from "../utilities/colors";
 import React from "react";
 
 export default class Bottombar extends React.Component {
   render() {
     return (
       <>
-        <EuiBottomBar position="static">
+        <EuiBottomBar position="static" style={{ backgroundColor: `${getColorTheme("bb_bgColor", this.props.theme)}`,}}>
           <EuiFlexGroup alignItems="center" justifyContent="spaceBetween">
             <EuiFlexItem grow={false} >
-              <EuiText>
+              <EuiText color={getColorTheme("text", this.props.theme)}>
                 <h4>
                   Hosted by Dunder Mifflin and Parks and Recreation Department
                 </h4>
               </EuiText>
-              <EuiText>
+              <EuiText color={getColorTheme("text", this.props.theme)}>
                 Group for all paper enthusiasts and bureaucrats
               </EuiText>
             </EuiFlexItem>

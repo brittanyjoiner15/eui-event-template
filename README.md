@@ -1,6 +1,7 @@
 ![Hacktoberfest themed banner for repo](https://user-images.githubusercontent.com/89431059/194469940-b753d9d3-7d63-4b22-b144-76afbf228a92.png)
 
 # Readme
+# Readme
 ## Happy Hacktoberfest!!
 
 _I remember my first Hacktoberfest so clearly because I was so intimidated by Git and contributing code to other repos, and I was still VERY early in my coding journey and didn't even know how to code, but enjoyed the experience so much!_
@@ -62,33 +63,76 @@ https://docs.google.com/spreadsheets/d/1XgyHXaReTZ3Nq_r7QS18GDvqK_ht010QqnI6PXAn
 ![](https://i.postimg.cc/x8BPkmzp/App-Script.jpg)
 #### 4. Delete all the code from the editor (inside Code.gs file).
 ####
+        // Get requests
         function doGet(req) {
             if(req.parameters.sheetName == "Speakers") {
                 return getSpeakersData()
+            } else if(req.parameters.sheetName == 'Talks') {
+                return getTalksData()
             }
         }
 
+        // speaker requestHandler
         function getSpeakersData() {
-        var doc = SpreadsheetApp.getActiveSpreadsheet()
-        var sheet = doc.getSheetByName("Speakers")
-        var values = sheet.getDataRange().getValues()
-        
-        var output = []
-        for(var i=1; i<values.length; i++) {
-            var row = {}
-            row['name'] = values[i][0]
-            row['title'] = values[i][1]
-            row['team'] = values[i][2]
-            row['location'] = values[i][3]
-            row['shortBio'] = values[i][4]
-            row['pronouns'] = values[i][5]
-            row['imageLink'] = values[i][6]
+            var doc = SpreadsheetApp.getActiveSpreadsheet()
+            var sheet = doc.getSheetByName("Speakers")
+            var values = sheet.getDataRange().getValues()
+            
+            var output = []
+            for(var i=1; i<values.length; i++) {
+                var row = {}
+                row['name'] = values[i][0]
+                row['title'] = values[i][1]
+                row['team'] = values[i][2]
+                row['location'] = values[i][3]
+                row['shortBio'] = values[i][4]
+                row['pronouns'] = values[i][5]
+                row['imageLink'] = values[i][6]
 
-            output.push(row)
-        }
+                output.push(row)
+            }
 
             return ContentService.createTextOutput(JSON.stringify({speakers: output})).setMimeType(ContentService.MimeType.JSON)
         }
+
+        // talk requestHandler
+        function getTalksData() {
+            var doc = SpreadsheetApp.getActiveSpreadsheet()
+            var sheet = doc.getSheetByName("Talks")
+            var values = sheet.getDataRange().getValues()
+            
+            var output = []
+            for(var i=1; i<values.length; i++) {
+                var row = {}
+                row['date'] = values[i][0]
+                row['time'] = values[i][1]
+                row['title'] = values[i][2]
+                row['description'] = values[i][3]
+                row['genre'] = values[i][4]
+                row['speaker'] = values[i][5].split(',')
+                row['speakersImageLink'] = values[i][6].split(',')
+                output.push(row)
+            }
+
+            return ContentService.createTextOutput(JSON.stringify({talks: output})).setMimeType(ContentService.MimeType.JSON)
+        }
+
+        // post requests
+        function doPost(e){
+            let action = e.parameter.action
+            if(action == "signup"){
+                return signUp(e)
+            }
+        }
+        // signup requestHandler
+        function signUp(e){
+            var doc = SpreadsheetApp.getActiveSpreadsheet()
+            var sheet = doc.getSheetByName("signup")
+            let user = JSON.parse(e.postData.contents)
+            sheet.appendRow([user.name,user.email])
+            return ContentService.createTextOutput(JSON.stringify({status: "success", "data": "my-data"})).setMimeType(ContentService.MimeType.JAVASCRIPT);
+        }
+
         
 #### 5. Paste above code in the Code.gs file.
 #### 6. Click on Deploy button and select New Deployment.

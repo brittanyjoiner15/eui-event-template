@@ -38,17 +38,18 @@ Follow these steps to connect your google sheets file with the app.
 ### 1. Create a google sheet
 
 #### 1. Go to https://docs.google.com/ and create a blank sheet
-#### 2. Add name, title, team, location, shortBio, pronouns, imageLink headers in the sheet (make sure the order of headers is same as in the example sheet provided below).
+#### 2. For Speakers Sheet - Add name, title, team, location, shortBio, pronouns, imageLink headers in the sheet. For Sign Up Sheet - Add name and email headers (make sure the order of headers is same as in the example sheet provided below).
 #### 3. Populate the sheet with some data.
 ##### Data Schema
-    name : string
-    title: string
+    SPEAKERS                                                 SIGN UP
+    name : string                                            name  : string
+    title: string                                            email : string
     team: string
     location: string
     shortBio: string
     pronouns: string
     imageLink: string (url of hosted image)
-#### 4. Change the sheet name to "Speakers" (Sheet name "Speakers" is case sensitive).
+#### 4. Change the sheet name to "Speakers" (Sheet name "Speakers" is case sensitive). Add another sheet from add and change the sheet name to "signup" (Case sensitive 🙂).
 
 ![](https://i.postimg.cc/MGPDVgkF/Sheet-Demo.jpg)
 ### Example sheet 
@@ -127,12 +128,11 @@ https://docs.google.com/spreadsheets/d/1XgyHXaReTZ3Nq_r7QS18GDvqK_ht010QqnI6PXAn
         // signup requestHandler
         function signUp(e){
             var doc = SpreadsheetApp.getActiveSpreadsheet()
-            var sheet = doc.getSheetByName("signup")
+            var sheet = doc.getSheetByName("signup") // name of your sheet where user details would be saved.
             let user = JSON.parse(e.postData.contents)
             sheet.appendRow([user.name,user.email])
             return ContentService.createTextOutput(JSON.stringify({status: "success", "data": "my-data"})).setMimeType(ContentService.MimeType.JAVASCRIPT);
         }
-
         
 #### 5. Paste above code in the Code.gs file.
 #### 6. Click on Deploy button and select New Deployment.

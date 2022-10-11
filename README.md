@@ -6,7 +6,7 @@
 
 _I remember my first Hacktoberfest so clearly because I was so intimidated by Git and contributing code to other repos, and I was still VERY early in my coding journey and didn't even know how to code, but enjoyed the experience so much!_
 
-_Hacktoberfest holds a special place in my heart because it's a great way to get started into coding and comfortable with Github. I'm so excited to finally maintain a repo that I can help others experience the same joy I did!_
+_Hacktoberfest holds a special place in my heart because it's a great way to get started in coding and get comfortable with Github. I'm so excited to finally maintain a repo that I can help others experience the same joy I did!_
 
 Want to participate in [Hacktoberfest](https://hacktoberfest.com/)? All you have to do is sign up, and then successfully merge 4 pull requests in the month of October! Check out our [contributing guidelines](https://github.com/brittanyjoiner15/eui-event/blob/main/contributing.md) and [open issues](https://github.com/brittanyjoiner15/eui-event) to participate from this repo!
 
@@ -14,7 +14,7 @@ Want to participate in [Hacktoberfest](https://hacktoberfest.com/)? All you have
 
 # React + Eui Template for An Event Website
 
-This is a template for an event based website. It started as a website I created for an event my ERG is hosting ([Rainbow Stack Summit](https://www.rainbowstacksummit.com/)), but I decided to make it it's own repo so others can contribute to it and use as well!
+This is a template for an event-based website. It started as a website I created for an event my ERG is hosting ([Rainbow Stack Summit](https://www.rainbowstacksummit.com/)), but I decided to make it it's own repo so others can contribute to it and use as well!
 
 This is all very much WIP, so if you have any comments or ideas, or want to contribute, feel free to create an issue.
 
@@ -27,8 +27,11 @@ https://eui-event.vercel.app/
 
 - Clone this repo (select "use this template" at the top)
 - Cd to the repo on your local machine
+- Run `npm i` to install all dependencies!
 - Run `yarn install`
 - Run `yarn start dev` to start it up!
+- May lead to 'react-scripts' is not recognized as an internal or external command
+- In that case go to https://stackoverflow.com/questions/47928735/react-scripts-is-not-recognized-as-an-internal-or-external-command
 - Go to localhost:3000 in your browser to view it!
 
 ## Connect Google Sheets with your app

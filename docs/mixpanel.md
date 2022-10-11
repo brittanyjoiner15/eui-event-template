@@ -5,9 +5,11 @@ Get an overview of the Mixpanel: https://developer.mixpanel.com/docs/what-is-mix
 
 ### How to set it up?
 
-- Run `npm install --save mixpanel-browser` or `yarn add mixpanel-browser` to install the package
+- On the Mixpanel dashboard, create a project and get the project token.
+
+- On your machine, navigate to your project directory and in the terminal, run the following command `npm install --save mixpanel-browser` or `yarn add mixpanel-browser` to install the package
 - After installing the package, open your text editor,
-    - In App.js, paste the following code:
+    - In App.js, start using Mixpanel in your project:
     ``` 
     import mixpanel from 'mixpanel-browser';
     // or with require() syntax:
@@ -18,4 +20,14 @@ Get an overview of the Mixpanel: https://developer.mixpanel.com/docs/what-is-mix
     mixpanel.init('YOUR_TOKEN', {debug: true}); 
     mixpanel.track('Sign up'); 
     ```
+
+### How to check for your events
+- Go back to Mixpanel project dashboard Live View(now Events) to see all data associated to an event.
+
+### Visualize your data
+- On your projet dashboard:
+    - Click on Reports
+    - Define your metrics
+    - Reports built
+
 

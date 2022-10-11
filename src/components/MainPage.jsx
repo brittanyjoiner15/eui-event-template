@@ -7,12 +7,13 @@ import {
   EuiSpacer,
 } from "@elastic/eui";
 import Navbar from "./Navbar";
-import BottomBar from "./BottomBar";
+import Footer from "./Footer";
 import EventDetails from "./panels/EventDetails";
 import SpeakersPanel from "./panels/SpeakersPanel";
 import TalksPanel from "./panels/TalksPanel";
 import RecordingsPanel from "./panels/RecordingsPanel";
 import FAQsPanel from "./panels/FAQsPanel";
+import SponsorLogos from "./SponsorLogos";
 import { Routes, Route } from "react-router-dom";
 import history from "../utilities/history";
 
@@ -78,7 +79,7 @@ function MainPage(props) {
             verticalPosition="center"
             horizontalPosition="center"
           >
-            <EuiPageContentBody>
+            <EuiPageContentBody restrictWidth>
               <Routes>
                 <Route path="/" element={<EventDetails />} />
                 <Route path="/events" element={<EventDetails />} />
@@ -88,9 +89,11 @@ function MainPage(props) {
                 <Route path="/faq" element={<FAQsPanel />} />
               </Routes>
             </EuiPageContentBody>
-            <EuiSpacer size="l" />
+            <EuiSpacer size="xl" />
+            <SponsorLogos />
           </EuiPageContent>
-          <BottomBar theme={props.theme} />
+          <EuiSpacer size="xl" />
+          <Footer theme={props.theme} />
         </EuiPageBody>
       </EuiFlexGroup>
     </EuiPage>

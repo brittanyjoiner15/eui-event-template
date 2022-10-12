@@ -1,2 +1,0 @@
-## Hello sir
-I would like to report a bug in the website i.e when we switch from the dark mode to switch mode the logo at the top left corner near IDT Conference heading isn't visible. I would like to work on it and also some other front end elements of the web app as i think this app can look really good if some good color gradients and combos are used.

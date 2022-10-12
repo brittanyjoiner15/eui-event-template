@@ -2,7 +2,7 @@ import React from "react";
 import { EuiIcon, EuiPageHeader } from "@elastic/eui";
 import { addCalButtons } from "../utilities/addCalButtons";
 /*import { makeRainbowText } from "../utilities/rainbowLetters";*/
-import { sessionOne, sessionTwo, eventIcon1, eventIcon2 } from "../data/consts";
+import { sessionOne, sessionTwo, DarkThemeLogo, LightThemeLogo } from "../data/consts";
 import history from "../utilities/history";
 import { useState } from "react";
 
@@ -16,7 +16,7 @@ export default function Navbar(props) {
     <>
       <EuiPageHeader
         restrictWidth
-        iconType={props.theme === "dark"?eventIcon1:eventIcon2}
+        iconType={props.theme === "dark"?DarkThemeLogo:LightThemeLogo}
         iconProps={{
           onClick: props.onLogoClick,
         }}

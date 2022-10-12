@@ -35,7 +35,7 @@ Update the table below with the following information:
 
 | Task        | Level       | Documentation | Issue       | Assign to  | Done       |
 | ----------- | --------    | --------      | --------    | --------   | --------   |
-| `[aria-*]` attributes match their roles | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-allowed-attr?utm_source=lighthouse&utm_medium=lr) | - | - | <input type="checkbox" checked /> |
+| `[aria-*]` attributes match their roles | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-allowed-attr?utm_source=lighthouse&utm_medium=lr) | - | - |<ul><li>[x] item1</li></ul> |
 | `[aria-hidden="true"]` is not present on the document `<body>` | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-hidden-body?utm_source=lighthouse&utm_medium=lr) | - | - | <input type="checkbox" checked /> |
 | `[role]`s have all required `[aria-*]` attributes | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-required-attr?utm_source=lighthouse&utm_medium=lr) | - | - | <input type="checkbox" checked /> |
 | Elements with an ARIA `[role]` that require children to contain a specific `[role]` have all required children | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-required-children?utm_source=lighthouse&utm_medium=lr) | - | - | <input type="checkbox" checked /> |

@@ -35,24 +35,24 @@ Update the table below with the following information:
 
 | Task        | Level       | Documentation | Issue       | Assign to  | Done       |
 | ----------- | --------    | --------      | --------    | --------   | --------   |
-| `[aria-*]` attributes match their roles | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-allowed-attr?utm_source=lighthouse&utm_medium=lr) | - | - |<ul><li>[x] DONE</li></ul> |
-| `[aria-hidden="true"]` is not present on the document `<body>` | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-hidden-body?utm_source=lighthouse&utm_medium=lr) | - | - | <input type="checkbox" checked /> |
-| `[role]`s have all required `[aria-*]` attributes | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-required-attr?utm_source=lighthouse&utm_medium=lr) | - | - | <input type="checkbox" checked /> |
-| Elements with an ARIA `[role]` that require children to contain a specific `[role]` have all required children | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-required-children?utm_source=lighthouse&utm_medium=lr) | - | - | <input type="checkbox" checked /> |
-| `[role]`s are contained by their required parent element | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-required-parent?utm_source=lighthouse&utm_medium=lr) | - | - | <input type="checkbox" checked /> |
-| `[role]` values are valid | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-roles?utm_source=lighthouse&utm_medium=lr) | - | - | <input type="checkbox" checked /> |
-| `[aria-*]` attributes have valid values | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-valid-attr-value?utm_source=lighthouse&utm_medium=lr) | - | - | <input type="checkbox" checked /> |
-| `[aria-*]` attributes are valid and not misspelled | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-valid-attr?utm_source=lighthouse&utm_medium=lr) | - | - | <input type="checkbox" checked /> |
-| Buttons have an accessible name | A | [docs](https://dequeuniversity.com/rules/axe/4.4/button-name?utm_source=lighthouse&utm_medium=lr) | - | - | <input type="checkbox" checked /> |
-| Image elements have `[alt]` attributes | A | [docs](https://dequeuniversity.com/rules/axe/4.4/image-alt?utm_source=lighthouse&utm_medium=lr) | - | - | <input type="checkbox" checked /> |
-| `[user-scalable="no"]` is not used in the `<meta name="viewport">` element and the `[maximum-scale]` attribute is not less than 5 | A | [docs](https://dequeuniversity.com/rules/axe/4.4/meta-viewport?utm_source=lighthouse&utm_medium=lr) | - | - | <input type="checkbox" checked /> |
-| `[aria-hidden="true"]` elements do not contain focusable descendents | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-hidden-focus?utm_source=lighthouse&utm_medium=lr) | - | - | <input type="checkbox" checked /> |
-| The page contains a heading, skip link, or landmark region | A | [docs](https://dequeuniversity.com/rules/axe/4.4/bypass?utm_source=lighthouse&utm_medium=lr) | - | - | <input type="checkbox" checked /> |
-| Document has a `<title>` element | A | [docs](https://dequeuniversity.com/rules/axe/4.4/document-title?utm_source=lighthouse&utm_medium=lr) | - | - | <input type="checkbox" checked /> |
-| `[id]` attributes on active, focusable elements are unique | A | [docs](https://dequeuniversity.com/rules/axe/4.4/duplicate-id-active?utm_source=lighthouse&utm_medium=lr) | - | - | <input type="checkbox" checked /> |
-| `<html>` element has a `[lang]` attribute | A | [docs](https://dequeuniversity.com/rules/axe/4.4/html-has-lang?utm_source=lighthouse&utm_medium=lr) | - | - | <input type="checkbox" checked /> |
-| `<html>` element has a valid value for its `[lang]` attribute | A | [docs](https://dequeuniversity.com/rules/axe/4.4/html-lang-valid?utm_source=lighthouse&utm_medium=lr) | - | - | <input type="checkbox" checked /> |
-| Links have a discernible name | A | [docs](https://dequeuniversity.com/rules/axe/4.4/link-name?utm_source=lighthouse&utm_medium=lr) | - | - | <input type="checkbox" checked /> |
+| `[aria-*]` attributes match their roles | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-allowed-attr?utm_source=lighthouse&utm_medium=lr) | - | - | <ul><li>[x] DONE</li></ul> |
+| `[aria-hidden="true"]` is not present on the document `<body>` | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-hidden-body?utm_source=lighthouse&utm_medium=lr) | - | - | <ul><li>[x] DONE</li></ul> |
+| `[role]`s have all required `[aria-*]` attributes | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-required-attr?utm_source=lighthouse&utm_medium=lr) | - | - | <ul><li>[x] </li></ul> |
+| Elements with an ARIA `[role]` that require children to contain a specific `[role]` have all required children | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-required-children?utm_source=lighthouse&utm_medium=lr) | - | - | <ul><li>[x] </li></ul> |
+| `[role]`s are contained by their required parent element | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-required-parent?utm_source=lighthouse&utm_medium=lr) | - | - | <ul><li>[x] </li></ul> |
+| `[role]` values are valid | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-roles?utm_source=lighthouse&utm_medium=lr) | - | - | <ul><li>[x] </li></ul> |
+| `[aria-*]` attributes have valid values | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-valid-attr-value?utm_source=lighthouse&utm_medium=lr) | - | - | <ul><li>[x] </li></ul> |
+| `[aria-*]` attributes are valid and not misspelled | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-valid-attr?utm_source=lighthouse&utm_medium=lr) | - | - | <ul><li>[x] </li></ul> |
+| Buttons have an accessible name | A | [docs](https://dequeuniversity.com/rules/axe/4.4/button-name?utm_source=lighthouse&utm_medium=lr) | - | - | <ul><li>[x] </li></ul> |
+| Image elements have `[alt]` attributes | A | [docs](https://dequeuniversity.com/rules/axe/4.4/image-alt?utm_source=lighthouse&utm_medium=lr) | - | - | <ul><li>[x] </li></ul> |
+| `[user-scalable="no"]` is not used in the `<meta name="viewport">` element and the `[maximum-scale]` attribute is not less than 5 | A | [docs](https://dequeuniversity.com/rules/axe/4.4/meta-viewport?utm_source=lighthouse&utm_medium=lr) | - | - | <ul><li>[x] </li></ul> |
+| `[aria-hidden="true"]` elements do not contain focusable descendents | A | [docs](https://dequeuniversity.com/rules/axe/4.4/aria-hidden-focus?utm_source=lighthouse&utm_medium=lr) | - | - | <ul><li>[x] </li></ul> |
+| The page contains a heading, skip link, or landmark region | A | [docs](https://dequeuniversity.com/rules/axe/4.4/bypass?utm_source=lighthouse&utm_medium=lr) | - | - | <ul><li>[x] </li></ul> |
+| Document has a `<title>` element | A | [docs](https://dequeuniversity.com/rules/axe/4.4/document-title?utm_source=lighthouse&utm_medium=lr) | - | - | <ul><li>[x] </li></ul> |
+| `[id]` attributes on active, focusable elements are unique | A | [docs](https://dequeuniversity.com/rules/axe/4.4/duplicate-id-active?utm_source=lighthouse&utm_medium=lr) | - | - | <ul><li>[x] </li></ul> |
+| `<html>` element has a `[lang]` attribute | A | [docs](https://dequeuniversity.com/rules/axe/4.4/html-has-lang?utm_source=lighthouse&utm_medium=lr) | - | - | <ul><li>[x] </li></ul> |
+| `<html>` element has a valid value for its `[lang]` attribute | A | [docs](https://dequeuniversity.com/rules/axe/4.4/html-lang-valid?utm_source=lighthouse&utm_medium=lr) | - | - | <ul><li>[x] </li></ul> |
+| Links have a discernible name | A | [docs](https://dequeuniversity.com/rules/axe/4.4/link-name?utm_source=lighthouse&utm_medium=lr) | - | - | <ul><li>[x] </li></ul> |
 | Background and foreground colors should have a sufficient contrast ratio | AA | [docs](https://dequeuniversity.com/rules/axe/4.4/color-contrast?utm_source=lighthouse&utm_medium=lr) |  |  | <input type="checkbox" /> TODO |
 | Heading elements should be in a sequentially-descending order | AAAA | [docs](https://dequeuniversity.com/rules/axe/4.4/heading-order?utm_source=lighthouse&utm_medium=lr) |  |  | <input type="checkbox" /> TODO |
 | The page has a logical tab order | A | [docs1](https://developer.chrome.com/docs/lighthouse/accessibility/logical-tab-order/?utm_source=lighthouse&utm_medium=lr) [docs2](https://www.w3.org/WAI/WCAG21/quickref/#keyboard-accessible) [docs3](https://www.csun.edu/universal-design-center/web-accessibility-criteria-tab-order#WC) |  |  | <input type="checkbox" /> TO CHECK |

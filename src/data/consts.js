@@ -11,5 +11,5 @@ export const sessionTwo = {
   calendarLink: "#",
 };
 
-export const DarkThemeLogo = logo
-export const LightThemeLogo = logo2
+export const darkThemeLogo = logo
+export const lightThemeLogo = logo2

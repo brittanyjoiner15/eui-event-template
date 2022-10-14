@@ -1,6 +1,6 @@
 ![Hacktoberfest themed banner for repo](https://user-images.githubusercontent.com/89431059/194469940-b753d9d3-7d63-4b22-b144-76afbf228a92.png)
 
-# Readme
+
 # Readme
 ## Happy Hacktoberfest!!
 
@@ -28,7 +28,7 @@ https://eui-event.vercel.app/
 - Clone this repo (select "use this template" at the top)
 - Cd to the repo on your local machine
 - Run `yarn install`
-- Run `yarn start dev` to start it up!
+- Run `yarn start` to start it up!
 - Go to localhost:3000 in your browser to view it!
 
 ## Connect Google Sheets with your app

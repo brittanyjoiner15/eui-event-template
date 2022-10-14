@@ -15,7 +15,6 @@ import {
   EuiBottomBar,
   EuiFlexGroup,
   EuiFlexItem,
-  EuiToast,
   EuiLink,
 } from "@elastic/eui";
 import React, { useState } from "react";
@@ -24,7 +23,7 @@ import { getColorTheme } from "../utilities/colors";
 
 // sign-up data lives in this spreadsheet: https://docs.google.com/spreadsheets/d/1XgyHXaReTZ3Nq_r7QS18GDvqK_ht010QqnI6PXAnePA/edit#gid=1988825686
 
-export default function Footer(props) {
+const Footer = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false); // show of modal
   const [isValidName, setIsValidName] = useState(false); // valid name or not
   const [isValidEmail, setIsValidEmail] = useState(false); // valid email or not
@@ -260,3 +259,5 @@ export default function Footer(props) {
     </>
   );
 };
+
+export default Footer;

@@ -79,7 +79,7 @@ function MainPage(props) {
             verticalPosition="center"
             horizontalPosition="center"
           >
-            <EuiPageContentBody restrictWidth>
+            <EuiPageContentBody>
               <Routes>
                 <Route path="/" element={<EventDetails />} />
                 <Route path="/events" element={<EventDetails />} />

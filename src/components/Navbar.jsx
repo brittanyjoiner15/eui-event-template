@@ -6,7 +6,7 @@ import { sessionOne, sessionTwo, eventIcon } from "../data/consts";
 import history from "../utilities/history";
 import { useState } from "react";
 
-export default function Navbar(props) {
+export default function Navbar({ theme, toggleTheme, tabs, onLogoClick = () => {} }) {
   const [preload, setPreload] = useState("preload");
   setTimeout(function () {
     setPreload("");
@@ -18,7 +18,7 @@ export default function Navbar(props) {
         restrictWidth
         iconType={eventIcon}
         iconProps={{
-          onClick: props.onLogoClick,
+          onClick: onLogoClick,
         }}
         pageTitle="IDT Conference"
         pageTitleProps={{
@@ -35,13 +35,13 @@ export default function Navbar(props) {
         rightSideItems={[
           addCalButtons(sessionTwo.dateAndTime, sessionTwo.calendarLink),
           addCalButtons(sessionOne.dateAndTime, sessionOne.calendarLink),
-          <div className="themeButton" onClick={() => props.toggleTheme()}>
+          <div className="themeButton" onClick={() => toggleTheme()}>
             <EuiIcon type="moon" className="moon" />
             <EuiIcon type="sun" className="sun" />
-            <div className={`ball ${props.theme} ${preload}`}></div>
+            <div className={`ball ${theme} ${preload}`}></div>
           </div>,
         ]}
-        tabs={props.tabs}
+        tabs={tabs}
       />
     </>
   );

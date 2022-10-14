@@ -23,7 +23,7 @@ import { getColorTheme } from "../utilities/colors";
 
 // sign-up data lives in this spreadsheet: https://docs.google.com/spreadsheets/d/1XgyHXaReTZ3Nq_r7QS18GDvqK_ht010QqnI6PXAnePA/edit#gid=1988825686
 
-const Footer = (props) => {
+const Footer = ({ theme }) => {
   const [isModalVisible, setIsModalVisible] = useState(false); // show of modal
   const [isValidName, setIsValidName] = useState(false); // valid name or not
   const [isValidEmail, setIsValidEmail] = useState(false); // valid email or not
@@ -185,15 +185,15 @@ const Footer = (props) => {
 
   return (
     <>
-      <EuiBottomBar position="static" style={{ backgroundColor: `${getColorTheme("bb_bgColor", props.theme)}` }}>
+      <EuiBottomBar position="static" style={{ backgroundColor: `${getColorTheme("bb_bgColor", theme)}` }}>
         <EuiFlexGroup alignItems="center" justifyContent="spaceBetween">
           <EuiFlexItem grow={false} >
-            <EuiText color={getColorTheme("text", props.theme)}>
+            <EuiText color={getColorTheme("text", theme)}>
               <h4>
                 Hosted by Dunder Mifflin and Parks and Recreation Department
               </h4>
             </EuiText>
-            <EuiText color={getColorTheme("text", props.theme)}>
+            <EuiText color={getColorTheme("text", theme)}>
               Group for all paper enthusiasts and bureaucrats
             </EuiText>
           </EuiFlexItem>

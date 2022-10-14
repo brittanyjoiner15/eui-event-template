@@ -23,8 +23,11 @@ function App() {
 
   const [theme, setTheme] = useState("dark");
   const toggleTheme = () => {
-    setTheme((curr) => (curr === "dark" ? "light" : "dark"));
-    localStorage.setItem("theme", theme === "dark" ? "light" : "dark");
+    setTheme((prevTheme) => {
+      const newTheme = prevTheme === "dark" ? "light" : "dark";
+      localStorage.setItem("theme", newTheme);
+      return newTheme;
+    });
   };
 
   return (

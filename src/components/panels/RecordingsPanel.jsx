@@ -10,11 +10,11 @@ export default class RecordingsPanel extends React.Component {
   renderAllRecordings() {
     return (
       <>
-        {recordings.map((recording) => {
+        {recordings.map((recording, i) => {
           return (
-            <EuiFlexItem>
-              <EuiCard>
-              {recording.embedId}
+            <EuiFlexItem key={i}>
+              <EuiCard title="">
+                {recording.embedId}
               </EuiCard>
             </EuiFlexItem>
           );

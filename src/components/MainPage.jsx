@@ -7,16 +7,17 @@ import {
   EuiSpacer,
 } from "@elastic/eui";
 import Navbar from "./Navbar";
-import BottomBar from "./BottomBar";
+import Footer from "./Footer";
 import EventDetails from "./panels/EventDetails";
 import SpeakersPanel from "./panels/SpeakersPanel";
 import TalksPanel from "./panels/TalksPanel";
 import RecordingsPanel from "./panels/RecordingsPanel";
 import FAQsPanel from "./panels/FAQsPanel";
+import SponsorLogos from "./SponsorLogos";
 import { Routes, Route } from "react-router-dom";
 import history from "../utilities/history";
 
-function MainPage(props) {
+function MainPage({ theme, toggleTheme }) {
   const tabs = [
     {
       id: "event",
@@ -66,8 +67,8 @@ function MainPage(props) {
         <EuiPageBody panelled>
           <Navbar
             tabs={tabs}
-            theme={props.theme}
-            toggleTheme={props.toggleTheme}
+            theme={theme}
+            toggleTheme={toggleTheme}
           />
           <EuiPageContent
             hasBorder={false}
@@ -88,9 +89,11 @@ function MainPage(props) {
                 <Route path="/faq" element={<FAQsPanel />} />
               </Routes>
             </EuiPageContentBody>
-            <EuiSpacer size="l" />
+            <EuiSpacer size="xl" />
+            <SponsorLogos />
           </EuiPageContent>
-          <BottomBar theme={props.theme} />
+          <EuiSpacer size="xl" />
+          <Footer theme={theme} />
         </EuiPageBody>
       </EuiFlexGroup>
     </EuiPage>

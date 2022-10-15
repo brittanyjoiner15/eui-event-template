@@ -23,12 +23,13 @@ View a live demo of the site hosted on [Vercel](https://eui-event.vercel.app/)
 
 ## Running Locally
 
-- Fork the project
 - Clone the project by running `git clone https://github.com/<your-username>/eui-event-template.git`
 - Cd to the repo on your local machine - `cd eui-event-template`
 - Install dependencies by - Run `yarn install`
 - Run `yarn start dev` to start the project
 - Go to localhost:3000 in your browser to view it!
+
+Note that: If you wish to use the project for your own purposes, you can clone it as mentioned above or check `use this template` from the top. If you wish to make a contribution to the repository, you will have to fork the repository as well.
 
 ## Connect Google Sheets with your app
 
@@ -36,12 +37,13 @@ Follow these steps to connect your google sheets file with the app.
 
 - **Create a google sheet**
  1. Go to https://docs.google.com/ and create a blank sheet
- 2. Add name, title, team, location, shortBio, pronouns, imageLink headers in the sheet (make sure the order of headers is same as in the example sheet provided below).
+ 2. For Speakers Tab - Add name, title, team, location, shortBio, pronouns, imageLink headers in the sheet. For Sign Up Sheet - Add name and email headers (make sure the order of headers is same as in the example sheet provided below).
  3. Populate the sheet with some data.
     ``` 
     Data Schema
-    name : string
-    title: string
+    SPEAKERS                                                 SIGN UP
+    name : string                                            name  : string
+    title: string                                            email : string
     team: string
     location: string
     shortBio: string
@@ -70,30 +72,72 @@ https://docs.google.com/spreadsheets/d/1XgyHXaReTZ3Nq_r7QS18GDvqK_ht010QqnI6PXAn
         function doGet(req) {
             if(req.parameters.sheetName == "Speakers") {
                 return getSpeakersData()
+              } else if(req.parameters.sheetName == 'Talks') {
+                return getTalksData()
             }
         }
 
+        // speaker requestHandler
         function getSpeakersData() {
-        var doc = SpreadsheetApp.getActiveSpreadsheet()
-        var sheet = doc.getSheetByName("Speakers")
-        var values = sheet.getDataRange().getValues()
-        
-        var output = []
-        for(var i=1; i<values.length; i++) {
-            var row = {}
-            row['name'] = values[i][0]
-            row['title'] = values[i][1]
-            row['team'] = values[i][2]
-            row['location'] = values[i][3]
-            row['shortBio'] = values[i][4]
-            row['pronouns'] = values[i][5]
-            row['imageLink'] = values[i][6]
+            var doc = SpreadsheetApp.getActiveSpreadsheet()
+            var sheet = doc.getSheetByName("Speakers")
+            var values = sheet.getDataRange().getValues()
 
-            output.push(row)
-        }
+            var output = []
+            for(var i=1; i<values.length; i++) {
+                var row = {}
+                row['name'] = values[i][0]
+                row['title'] = values[i][1]
+                row['team'] = values[i][2]
+                row['location'] = values[i][3]
+                row['shortBio'] = values[i][4]
+                row['pronouns'] = values[i][5]
+                row['imageLink'] = values[i][6]
+
+                output.push(row)
+            }
 
             return ContentService.createTextOutput(JSON.stringify({speakers: output})).setMimeType(ContentService.MimeType.JSON)
         }
+        
+        // talk requestHandler
+        function getTalksData() {
+            var doc = SpreadsheetApp.getActiveSpreadsheet()
+            var sheet = doc.getSheetByName("Talks")
+            var values = sheet.getDataRange().getValues()
+
+            var output = []
+            for(var i=1; i<values.length; i++) {
+                var row = {}
+                row['date'] = values[i][0]
+                row['time'] = values[i][1]
+                row['title'] = values[i][2]
+                row['description'] = values[i][3]
+                row['genre'] = values[i][4]
+                row['speaker'] = values[i][5].split(',')
+                row['speakersImageLink'] = values[i][6].split(',')
+                output.push(row)
+            }
+
+            return ContentService.createTextOutput(JSON.stringify({talks: output})).setMimeType(ContentService.MimeType.JSON)
+        }
+        // post requests
+        function doPost(e){
+            let action = e.parameter.action
+            if(action == "signup"){
+                return signUp(e)
+            }
+        }
+        // signup requestHandler
+        function signUp(e){
+            var doc = SpreadsheetApp.getActiveSpreadsheet()
+            var sheet = doc.getSheetByName("signup") // name of your sheet where user details would be saved.
+            let user = JSON.parse(e.postData.contents)
+            sheet.appendRow([user.name,user.email])
+            return ContentService.createTextOutput(JSON.stringify({status: "success", "data": "my-data"})).setMimeType(ContentService.MimeType.JAVASCRIPT);
+        }
+
+
         
  ```
         

@@ -33,7 +33,7 @@ jobs:
         uses: treosh/lighthouse-ci-action@v3
         with:
           urls: |
-            eui-event.vercel.app/
+            https://eui-event.vercel.app/
           uploadArtifacts: true
           temporaryPublicStorage: true
       - name: Format lighthouse score

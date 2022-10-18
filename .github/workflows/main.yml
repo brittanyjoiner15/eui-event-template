@@ -10,7 +10,8 @@ on:
 
 jobs:
   generate_lighthouse_audit:
-    permissions: write-all
+    permissions:
+      pull-requests: write
     timeout-minutes: 30
     runs-on: ubuntu-latest
     steps:

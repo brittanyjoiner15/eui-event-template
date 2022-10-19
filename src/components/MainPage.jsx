@@ -15,6 +15,29 @@ import RecordingsPanel from "./panels/RecordingsPanel";
 import FAQsPanel from "./panels/FAQsPanel";
 import { Routes, Route } from "react-router-dom";
 import history from "../utilities/history";
+import { Suspense } from "react";
+
+import spinner from "../utilities/spinner-unscreen.gif";
+
+const Spinner = () => {
+  return (
+    <div>
+      <img
+        src={spinner}
+        style={{
+          width: "400px",
+          margin: "auto",
+          display: "block",
+          transition: "ease-in-out",
+        }}
+        alt="Test..."
+      />
+      <h1 style={{ fontSize: "25px", textAlign: "center" }}>
+        Loading...Hold On😪
+      </h1>
+    </div>
+  );
+};
 
 function MainPage(props) {
   const tabs = [
@@ -82,8 +105,22 @@ function MainPage(props) {
               <Routes>
                 <Route path="/" element={<EventDetails />} />
                 <Route path="/events" element={<EventDetails />} />
-                <Route path="/speakers" element={<SpeakersPanel />} />
-                <Route path="/talks" element={<TalksPanel />} />
+                <Route
+                  path="/speakers"
+                  element={
+                    <Suspense fallback={<Spinner />}>
+                      <SpeakersPanel />
+                    </Suspense>
+                  }
+                />
+                <Route
+                  path="/talks"
+                  element={
+                    <Suspense fallback={<Spinner />}>
+                      <TalksPanel />
+                    </Suspense>
+                  }
+                />
                 <Route path="/recordings" element={<RecordingsPanel />} />
                 <Route path="/faq" element={<FAQsPanel />} />
               </Routes>

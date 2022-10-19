@@ -17,7 +17,7 @@ import { Routes, Route } from "react-router-dom";
 import history from "../utilities/history";
 import { Suspense } from "react";
 
-import spinner from "../utilities/spinner-unscreen.gif";
+import spinner from "../utilities/spinner.gif";
 
 const Spinner = () => {
   return (

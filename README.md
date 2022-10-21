@@ -8,7 +8,7 @@ _I remember my first Hacktoberfest so clearly because I was so intimidated by Gi
 
 _Hacktoberfest holds a special place in my heart because it's a great way to get started into coding and comfortable with Github. I'm so excited to finally maintain a repo that I can help others experience the same joy I did!_
 
-Want to participate in [Hacktoberfest](https://hacktoberfest.com/)? All you have to do is sign up, and then successfully merge 4 pull requests in the month of October! Check out our [contributing guidelines](https://github.com/brittanyjoiner15/eui-event/blob/main/contributing.md) and [open issues](https://github.com/brittanyjoiner15/eui-event) to participate from this repo!
+Want to participate in [Hacktoberfest](https://hacktoberfest.com/)? All you have to do is sign up, and then successfully merge 4 pull requests in the month of October! Check out our [contributing guidelines](https://github.com/brittanyjoiner15/eui-event-template/blob/main/CONTRIBUTING.md) and [open issues](https://github.com/brittanyjoiner15/eui-event-template/issues?q=is%3Aopen+is%3Aissue) to participate from this repo!
 
 ![](https://firebasestorage.googleapis.com/v0/b/photo-url-generator-e736c.appspot.com/o/posts%2FZaQRmT7oKMwu9dgUV1bf%2Fimage?alt=media&token=acb8b002-fa77-4bb7-98d6-9195adfa41f4)
 

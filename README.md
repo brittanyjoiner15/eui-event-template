@@ -1,6 +1,5 @@
 ![Hacktoberfest themed banner for repo](https://user-images.githubusercontent.com/89431059/194469940-b753d9d3-7d63-4b22-b144-76afbf228a92.png)
 
-
 ## Happy Hacktoberfest!!
 
 _I remember my first Hacktoberfest so clearly because I was so intimidated by Git and contributing code to other repos, and I was still VERY early in my coding journey and didn't even know how to code, but enjoyed the experience so much!_

@@ -15,7 +15,6 @@ export default function Navbar(props) {
   return (
     <>
       <EuiPageHeader
-        restrictWidth
         iconType={props.theme === "dark"?darkThemeLogo:lightThemeLogo}
         iconProps={{
           onClick: props.onLogoClick,

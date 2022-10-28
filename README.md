@@ -12,7 +12,7 @@ Want to participate in [Hacktoberfest](https://hacktoberfest.com/)? All you have
 
 # React + Eui Template for An Event Website
 
-This is a template for an event based website. The website was created for an event my ERG is hosting ([Rainbow Stack Summit](https://www.rainbowstacksummit.com/)), but I decided to make its repository so others could contribute to it and use it as well!
+This is a template for an event-based website. The website was created for an event my ERG was hosting ([Rainbow Stack Summit](https://www.rainbowstacksummit.com/)), but I decided to make its own repository so others can contribute to it and use it as well!
 
 This is all very much Work In Progress, so if you have any comments or ideas, or want to contribute, feel free to create an issue.
 
@@ -27,6 +27,8 @@ View a live demo of the site hosted on [Vercel](https://eui-event.vercel.app/)
 - Install dependencies by running `yarn install`
 - Run `yarn start` to start the project
 - Go to localhost:3000 in your browser to view it!
+
+Note that: If you wish to use the project for your own purposes, you can clone it as mentioned above or check `use this template` from the top. If you wish to make a contribution to the repository, you will have to fork the repository as well.
 
 ## Connect Google Sheets with your app
 
@@ -98,7 +100,6 @@ https://docs.google.com/spreadsheets/d/1XgyHXaReTZ3Nq_r7QS18GDvqK_ht010QqnI6PXAn
 
             return ContentService.createTextOutput(JSON.stringify({speakers: output})).setMimeType(ContentService.MimeType.JSON)
         }
-
         // talk requestHandler
         function getTalksData() {
             var doc = SpreadsheetApp.getActiveSpreadsheet()
@@ -120,7 +121,6 @@ https://docs.google.com/spreadsheets/d/1XgyHXaReTZ3Nq_r7QS18GDvqK_ht010QqnI6PXAn
 
             return ContentService.createTextOutput(JSON.stringify({talks: output})).setMimeType(ContentService.MimeType.JSON)
         }
-
         // post requests
         function doPost(e){
             let action = e.parameter.action

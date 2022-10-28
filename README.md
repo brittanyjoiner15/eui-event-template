@@ -6,7 +6,7 @@ _I remember my first Hacktoberfest so clearly because I was so intimidated by Gi
 
 _Hacktoberfest holds a special place in my heart because it's a great way to get started into coding and comfortable with Github. I'm so excited to finally maintain a repo that I can help others experience the same joy I did!_
 
-Want to participate in [Hacktoberfest](https://hacktoberfest.com/)? All you have to do is sign up, and then successfully merge 4 pull requests in the month of October! Check out our [contributing guidelines](https://github.com/brittanyjoiner15/eui-event/blob/main/contributing.md) and [open issues](https://github.com/brittanyjoiner15/eui-event) to participate from this repo!
+Want to participate in [Hacktoberfest](https://hacktoberfest.com/)? All you have to do is sign up, and then successfully merge 4 pull requests in the month of October! Check out our [contributing guidelines](https://github.com/brittanyjoiner15/eui-event-template/blob/main/CONTRIBUTING.md) and [open issues](https://github.com/brittanyjoiner15/eui-event-template/issues?q=is%3Aopen+is%3Aissue) to participate from this repo!
 
 ![](https://firebasestorage.googleapis.com/v0/b/photo-url-generator-e736c.appspot.com/o/posts%2FZaQRmT7oKMwu9dgUV1bf%2Fimage?alt=media&token=acb8b002-fa77-4bb7-98d6-9195adfa41f4)
 
@@ -22,10 +22,12 @@ View a live demo of the site hosted on [Vercel](https://eui-event.vercel.app/)
 
 ## Running Locally
 
+
 - Clone the project by running `git clone https://github.com/<your-username>/eui-event-template.git` in your terminal, or by using the Github Desktop UI
 - Cd to the repo on your local machine - `cd eui-event-template`
 - Install dependencies by running `yarn install`
 - Run `yarn start` to start the project
+
 - Go to localhost:3000 in your browser to view it!
 
 Note that: If you wish to use the project for your own purposes, you can clone it as mentioned above or check `use this template` from the top. If you wish to make a contribution to the repository, you will have to fork the repository as well.

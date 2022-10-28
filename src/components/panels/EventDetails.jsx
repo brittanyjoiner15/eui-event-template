@@ -14,7 +14,7 @@ export default class EventDetails extends React.Component {
   renderHero = () => {
     return (
       <EuiImage
-        size="original"
+        size="fullWidth"
         alt="Rainbow Stack Summit banner"
         src={heroImage}
       />

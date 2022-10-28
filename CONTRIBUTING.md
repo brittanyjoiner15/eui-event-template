@@ -55,7 +55,7 @@ Note - at this time, we'd only like folks to be assigned _one_ issue at a time, 
 2. After you fork the repo, add it to your local machine. _I find this easiest to do by downloading the GitHub Desktop app and then selecting the "Open with GitHub Desktop" option._
 3. Open a terminal and cd to the repo.
 4. Once there, run `yarn install` to install all the dependencies
-5. Run `yarn run dev` to start the server
+5. Run `yarn start` to start the server
 6. Go to `localhost:3000` and view it!
 
 _If you have any problems doing this, please create an issue and tag me with `@brittanyjoiner15`, or [DM me on Twitter](https://twitter.com/britt_joiner)._

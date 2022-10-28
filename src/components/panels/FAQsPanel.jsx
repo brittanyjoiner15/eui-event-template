@@ -57,9 +57,7 @@ const FaqAccordionRow = ({ question, detail, answer }) => {
 }
 
 export default function FAQsPanel() {
-  const [isXs, isS] = [useIsXs(), useIsS(), useIsM()];
-  const pageTitleSize = isXs ? "xs" : isS ? "s" : "m";
-
+  
   return (
     <>
       <EuiFlexGroup
@@ -67,9 +65,6 @@ export default function FAQsPanel() {
         direction="column"
       >
         <div style={{ maxWidth: '1200px' }}>
-          <EuiTitle size={pageTitleSize}>
-            <h1 style={{ marginTop: '12px', marginBottom: '24px' }}>FAQs</h1>
-          </EuiTitle>
           <EuiFlexItem>
             {faqs.map(({ question, detail, answer }, i) => {
               const FunctionalAnswer = () => answer;

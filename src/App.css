@@ -122,6 +122,7 @@ h1.euiTitle{
     position: relative;
     top:8px;
     transform: scale(1.5);
+    margin-right: 1rem;
   }
   
   .moon {

@@ -6,22 +6,20 @@ import {
   EuiFlexGroup,
   EuiFlexItem,
   EuiIcon,
-  EuiLink,
   EuiPanel,
   EuiText,
 } from "@elastic/eui";
 import React from "react";
-import { useState, useEffect } from "react";
-import { talks } from "../../data/talks";
+import { useState } from "react";
 import { renderGenreTags } from "../../utilities/genreTags";
 import { showTime } from "../../utilities/showLocalTime";
-import axios from 'axios'
-import {webAppUrl as url} from '../../utilities/env' 
+import { fetchTalk } from "../../utilities/Api/fetchTalksDetails";
+
+const resource = fetchTalk();
 
 function TalksPanel() {
-  
-  const [talksData, setTalksData] = useState([])
-  const [showEst, setShowEst] = useState(false)
+  const [showEst, setShowEst] = useState(false);
+  const talksData = resource.talks.read();
 
   const renderShowEstButton = () => {
     return (
@@ -41,15 +39,15 @@ function TalksPanel() {
         </EuiButton>
       </EuiPanel>
     );
-  }
-  
+  };
+
   const columns = [
     {
       field: "date",
       name: "Date",
       render: (date) => (
         <EuiBadge color={date === "Sept 8th" ? "primary" : "success"}>
-          {date.split('T')[0]}
+          {date.split("T")[0]}
         </EuiBadge>
       ),
     },
@@ -78,7 +76,7 @@ function TalksPanel() {
         <EuiFlexGroup direction="column">
           {renderSpeakers(speaker, speakersImageLink)}
         </EuiFlexGroup>
-      )
+      ),
     },
     {
       field: "genre",
@@ -103,17 +101,8 @@ function TalksPanel() {
           },
         },
       ],
-    }
+    },
   ];
-  
-  useEffect(() => {
-    const fetchTalksData = async () => {
-      const res = await axios.get(`${url}?sheetName=Talks`)
-      setTalksData(res.data.talks)
-    }
-    fetchTalksData()
-  }, [])
-  
 
   const renderTalkTable = () => {
     return (
@@ -121,7 +110,7 @@ function TalksPanel() {
         <EuiBasicTable items={talksData} columns={columns} hasActions />
       </EuiFlexItem>
     );
-  }
+  };
   const renderSpeakers = (speakers, data) => {
     if (speakers.length > 1) {
       return speakers.map((speakerName, index) => (
@@ -134,7 +123,7 @@ function TalksPanel() {
                 name={speakerName}
                 className="xMargin"
               />
-                <EuiText>{speakerName}</EuiText>
+              <EuiText>{speakerName}</EuiText>
             </EuiFlexItem>
           </EuiFlexGroup>
         </>
@@ -160,18 +149,12 @@ function TalksPanel() {
 
   return (
     <>
-      <EuiFlexGroup
-        gutterSize="l"
-        alignItems="center"
-        justifyContent="flexEnd"
-      >
+      <EuiFlexGroup gutterSize="l" alignItems="center" justifyContent="flexEnd">
         <EuiFlexItem grow={false}>{renderShowEstButton()}</EuiFlexItem>
       </EuiFlexGroup>
-      <EuiFlexGroup className="xMargin">
-        {renderTalkTable()}
-      </EuiFlexGroup>
+      <EuiFlexGroup className="xMargin">{renderTalkTable()}</EuiFlexGroup>
     </>
-  )
+  );
 }
 
-export default TalksPanel
+export default TalksPanel;

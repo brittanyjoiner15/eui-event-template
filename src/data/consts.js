@@ -1,4 +1,5 @@
 import logo from "../images/event-icon.webp"
+import logo2 from "../images/2313181.png"
 
 export const sessionOne = {
   dateAndTime: "Sept 8th, 2pm EDT",
@@ -10,4 +11,5 @@ export const sessionTwo = {
   calendarLink: "#",
 };
 
-export const eventIcon = logo
+export const darkThemeLogo = logo
+export const lightThemeLogo = logo2

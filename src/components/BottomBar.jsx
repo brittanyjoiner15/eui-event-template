@@ -194,7 +194,7 @@ export default (props) => {
                   Hosted by Dunder Mifflin, Parks & Recreation Department
                 </h5>
               </EuiText>
-              <EuiText color={getColorTheme("text", props.theme)}>\
+              <EuiText color={getColorTheme("text", props.theme)}>
               <h6>
                 Group for all paper enthusiasts and bureaucrats
               </h6>  

@@ -190,12 +190,14 @@ export default (props) => {
           <EuiFlexGroup alignItems="center" justifyContent="spaceBetween">
             <EuiFlexItem grow={false} >
               <EuiText color={getColorTheme("text", props.theme)}>
-                <h4>
-                  Hosted by Dunder Mifflin and Parks and Recreation Department
-                </h4>
+                <h5>
+                  Hosted by Dunder Mifflin, Parks & Recreation Department
+                </h5>
               </EuiText>
-              <EuiText color={getColorTheme("text", props.theme)}>
+              <EuiText color={getColorTheme("text", props.theme)}>\
+              <h6>
                 Group for all paper enthusiasts and bureaucrats
+              </h6>  
               </EuiText>
             </EuiFlexItem>
           <EuiFlexItem grow={false}>

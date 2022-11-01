@@ -1,0 +1,19 @@
+{
+  "eventDetails": "Szczegóły wydarzenia",
+  "speakers": "Wykładowcy",
+  "talks": "Wykłady",
+  "recordings": "Nagrania",
+  "faq": "Często zadawane pytania",
+  "saveDate": "Zapisz sesję: {date}",
+  "signUp": "Zapisz się aby otrzymywać aktualizacje",
+  "joinSlack": "Dołącz do grupy na Slacku",
+  "showDatesEDT": "Pokaż daty w strefie czasowej EDT",
+  "showDatesLocal": "Pokaż daty w lokalnej strefie czasowej",
+  "session": "Sesja",
+  "time": "Czas",
+  "title": "Tytuł",
+  "description": "Opis",
+  "speaker": "Wykładowca",
+  "genre": "Kategoria",
+  "actions": "Działania"
+}

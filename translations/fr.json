@@ -1,0 +1,19 @@
+{
+    "eventDetails": "Détails de l'évènement",
+    "speakers": "Intervenants",
+    "talks": "Conférences",
+    "recordings": "Enregistrements",
+    "faq": "FAQ/Questions fréquemment posées",
+    "saveDate": "Enregistrez la session de {date}",
+    "signUp": "Inscrivez-vous pour rester informé",
+    "joinSlack": "Rejoignez le groupe Slack",
+    "showDatesEDT": "Afficher les horaires en EDT",
+    "showDatesLocal": "Afficher les horaires en local",
+    "session": "Session",
+    "time": "Heure",
+    "title": "Titre",
+    "description": "La description",
+    "speaker": "L'intervenant",
+    "genre": "Catégorie",
+    "actions": "Actions"
+}

@@ -1,4 +1,4 @@
-### What is Mixpanel?
+# What is Mixpanel?
 It is an analytic tool that gets you insighst on how users interact with your digital product. These insights will help enable you to make decisions on how your users can get the best out of your digital productand and eventually retain them.
 
 Get an overview of the Mixpanel: https://developer.mixpanel.com/docs/what-is-mixpanel 
@@ -7,27 +7,41 @@ Get an overview of the Mixpanel: https://developer.mixpanel.com/docs/what-is-mix
 
 - On the Mixpanel dashboard, create a project and get the project token.
 
-- On your machine, navigate to your project directory and in the terminal, run the following command `npm install --save mixpanel-browser` or `yarn add mixpanel-browser` to install the package
-- After installing the package, open your text editor,
-    - In App.js, start using Mixpanel in your project:
-    ``` 
-    import mixpanel from 'mixpanel-browser';
-    // or with require() syntax:
-    // const mixpanel = require('mixpanel-browser');
+- Run `npm install --save mixpanel-browser` or `yarn add mixpanel-browser` to install the package;
 
-    // Enabling the debug mode flag is useful during implementation,
-    // but it's recommended you remove it for production
-    mixpanel.init('YOUR_TOKEN', {debug: true}); 
-    mixpanel.track('Sign up'); 
-    ```
+- Import Mixpanel in your project:
+    ` import mixpanel from 'mixpanel-browser';`
 
-### How to check for your events
-- Go back to Mixpanel project dashboard Live View(now Events) to see all data associated to an event.
+- Initianilze Mixpanel anywhere you wish to use it `mixpanel.init('YOUR_TOKEN'}); ` replace the token with your project's token.
 
-### Visualize your data
-- On your projet dashboard:
-    - Click on Reports
-    - Define your metrics
-    - Reports built
+### Send events?
+Let's track how many times a button has been clicked in our App.
 
+- Add an event listener to the button we want to track `<button onClick={btnClick}>Button</button>`
+- Call mixpanel in the `btnClick` function and pass it an `event name`. In our case, we named it `Button clicked`. The full code should look like this:
+
+``` 
+import mixpanel from 'mixpanel-browser';
+
+mixpanel.init('YOUR_TOKEN'); 
+
+function App() {
+
+  let btnClick = (e) => {
+    mixpanel.track("Button clicked")
+  }
+  return (
+    <>
+      <Button colorScheme='blue' onClick={btnClick}>Button</Button>
+    </>
+  );
+}
+
+export default App;
+
+```
+
+### Check for successful events
+- To confrim your connection to Mixpanel was successful, check your `network tab` for a status `200`
+- Go back to Mixpanel project dashboard click on `Events` to see all your events.
 

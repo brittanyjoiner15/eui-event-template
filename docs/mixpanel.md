@@ -9,44 +9,46 @@ Get an overview of the Mixpanel: https://developer.mixpanel.com/docs/what-is-mix
 
 - Run `npm install --save mixpanel-browser` or `yarn add mixpanel-browser` to install the package;
 
-- Import Mixpanel in your project:
-    ` import mixpanel from 'mixpanel-browser';`
+- Import Mixpanel in your project: `import mixpanel from 'mixpanel-browser';`
 
-- Initianilze Mixpanel anywhere you wish to use it `mixpanel.init('YOUR_TOKEN'}); ` replace the token with your project's token.
+- Initianilze Mixpanel anywhere you wish to use it `mixpanel.init('YOUR_TOKEN'});` replace the token with your project's token.
 
 ### Send events?
-Let's track how many times a button has been clicked in our App.
+Let's track how many times the logo has been clicked in our App.
 
-- Add an event listener to the button we want to track `<button onClick={btnClick}>Button</button>`
-- Call mixpanel in the `btnClick` function and pass it an `event name`. In our case, we named it `Button clicked`. The full code should look like this:
+- Let's `mixpanel.track()` in our `onLogoClick` function.
+- We need to precise an `event name` so we know what event we are tracking and in this case, we are tracking `Rainbow logo clicked` event in our `MainPage`
+- The short code version looks like this:
 
 ``` 
-import mixpanel from 'mixpanel-browser';
+import mixpanel from 'mixpanel-browser'; // importing mixpanel
 
-mixpanel.init('YOUR_TOKEN'); 
+mixpanel.init('YOUR_TOKEN'); // initializing mixpanel
 
-function App() {
+function MainPage() {
 
-  let btnClick = (e) => {
-    mixpanel.track("Button clicked")
-  }
+   const onLogoClick = useCallback(() => {
+    onSelectedTabChanged("event");
+    mixpanel.track("Rainbow logo clicked") // Tracking logo click event
+  }, []);
+
   return (
     <>
-      <Button colorScheme='blue' onClick={btnClick}>Button</Button>
+      <Navbar tabs={tabs} onLogoClick={onLogoClick} />
     </>
   );
 }
 
-export default App;
+export default MainPage;
 
 ```
+- The full code should look like this: [link](../src/components/MainPage.jsx)
 
 ### Check for successful events
 - To confrim your connection to Mixpanel was successful, check your `network tab` for a status `200`
-![browser network tab](../src/images/networktab.png)
 
 - Go back to Mixpanel project dashboard click on `Events` to see all your events.
-![Mixpanel event dashboard](../src/images/mixpaneleventdashboard.png)
+![mixpanel event dashboard](../src/images/mixpaneleventdashboard.png)
 
 ### Important links
 - https://www.youtube.com/watch?v=H35FwN51tWQ

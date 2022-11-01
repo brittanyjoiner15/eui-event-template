@@ -46,7 +46,7 @@ export default MainPage;
 
 ### Check for successful events
 - To confrim your connection to Mixpanel was successful, check your `network tab` for a status `200`
-
+![network tab 200 code](../src/images/networktab200.png)
 - Go back to Mixpanel project dashboard click on `Events` to see all your events.
 ![mixpanel event dashboard](../src/images/mixpaneleventdashboard.png)
 

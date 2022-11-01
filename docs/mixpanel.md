@@ -43,5 +43,12 @@ export default App;
 
 ### Check for successful events
 - To confrim your connection to Mixpanel was successful, check your `network tab` for a status `200`
+![browser network tab](../src/images/networktab.png)
+
 - Go back to Mixpanel project dashboard click on `Events` to see all your events.
+![Mixpanel event dashboard](../src/images/mixpaneleventdashboard.png)
+
+### Important links
+- https://www.youtube.com/watch?v=H35FwN51tWQ
+https://help.mixpanel.com/hc/en-us/articles/360021749032#music-finder 
 

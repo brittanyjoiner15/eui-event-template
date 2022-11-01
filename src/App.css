@@ -1,15 +1,153 @@
-@import url('https://fonts.googleapis.com/css?family=Inter');
+@import url("https://fonts.googleapis.com/css?family=Inter");
+
+:root {
+    /* exposing EUI colors as css variables */
+    --color-light-primary: #07c;
+    --color-primary: var(--color-light-primary);
+    --color-light-accent: #f04e98;
+    --color-accent: var(--color-light-accent);
+    --color-light-success: #00bfb3;
+    --color-success: var(--color-light-success);
+    --color-light-warning: #fec514;
+    --color-warning: var(--color-light-warning);
+    --color-light-danger: #bd271e;
+    --color-danger: var(--color-light-danger);
+    --color-light-empty-shade: #fff;
+    --color-empty-shade: var(--color-light-empty-shade);
+    --color-light-lightest-shade: #f1f4fa;
+    --color-lightest-shade: var(--color-light-lightest-shade);
+    --color-light-light-shade: #d3dae6;
+    --color-light-shade: var(--color-light-light-shade);
+    --color-light-medium-shade: #98a2b3;
+    --color-medium-shade: var(--color-light-medium-shade);
+    --color-light-dark-shade: #69707d;
+    --color-dark-shade: var(--color-light-dark-shade);
+    --color-light-darkest-shade: #343741;
+    --color-darkest-shade: var(--color-light-darkest-shade);
+    --color-light-full-shade: #000;
+    --color-full-shade: var(--color-light-full-shade);
+    --color-dark-primary: #36a2ef;
+    --color-dark-accent: #f68fbe;
+    --color-dark-success: #7dded8;
+    --color-dark-warning: #f3d371;
+    --color-dark-danger: #f86b63;
+    --color-dark-empty-shade: #1d1e24;
+    --color-dark-lightest-shade: #25262e;
+    --color-dark-light-shade: #343741;
+    --color-dark-medium-shade: #535966;
+    --color-dark-dark-shade: #98a2b3;
+    --color-dark-darkest-shade: #d4dae5;
+    --color-dark-full-shade: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-primary: var(--color-dark-primary);
+        --color-accent: var(--color-dark-accent);
+        --color-success: var(--color-dark-success);
+        --color-warning: var(--color-dark-warning);
+        --color-danger: var(--color-dark-danger);
+        --color-empty-shade: var(--color-dark-empty-shade);
+        --color-lightest-shade: var(--color-dark-lightest-shade);
+        --color-light-shade: var(--color-dark-light-shade);
+        --color-medium-shade: var(--color-dark-medium-shade);
+        --color-dark-shade: var(--color-dark-dark-shade);
+        --color-darkest-shade: var(--color-dark-darkest-shade);
+        --color-full-shade: var(--color-dark-full-shade);
+    }
+}
 
 .xMargin {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 20px !important ;
+    margin-right: 20px !important ;
 }
 
 .maxWidth {
-    max-width: 100px;
+    max-width: 100px !important ;
 }
 
 .speaker-info {
     flex-direction: row !important;
     padding: 5px 0;
 }
+
+/* css for social icons in the footer */
+
+.social-icons {
+ font-size: 30px;
+}
+
+.social-links svg{
+    display: none;
+}
+
+.speaker-card {
+    transition: 0.2s all linear;
+}
+
+.speaker-card:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 11px rgba(236, 226, 226, 0.2);
+}    
+
+h1.euiTitle{
+   min-width:300px !important;
+   font-size:2.5rem
+}
+
+/* styling the accordion toggle arrows */
+
+.euiAccordion > .euiAccordion__triggerWrapper > .euiButtonIcon.euiButtonIcon--text.euiAccordion__iconButton-isOpen > svg {
+    transition: color 0.15s ease-out, fill 0.15s ease-out;
+}
+
+.euiAccordion > .euiAccordion__triggerWrapper > .euiButtonIcon.euiButtonIcon--text.euiAccordion__iconButton-isOpen > svg {
+    color: var(--color-accent) !important;
+}
+
+.themeButton {
+    cursor: pointer;
+    width: 50px;
+    height: 26px;
+    background-color: rgba(118, 109, 160, 0.5);
+    display: flex;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    position: relative;
+    top:8px;
+    transform: scale(1.5);
+    margin-right: 1rem;
+  }
+  
+  .moon {
+    color: pink !important;
+  }
+  
+  .sun {
+    color: #FFFF00 !important;
+  }
+  
+  .ball {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+  }
+  
+  .preload{
+    transition-duration: 0ms;
+  }
+  
+  .ball.light{
+    transform: translateX(0px);
+  }
+  
+  .ball.dark{
+    transform: translateX(24px);
+  }

@@ -7,18 +7,29 @@ import {
   EuiText,
 } from "@elastic/eui";
 import React from "react";
-import { speakers } from "../../data/speakers";
+import { fetchSpeaker } from "../../utilities/Api/fetchSpeakerDetails";
 
-export default class SpeakersPanel extends React.Component {
-  renderAllSpeakers() {
-    return (
-      <>
+// speaker data lives in this spreadsheet: https://docs.google.com/spreadsheets/d/1XgyHXaReTZ3Nq_r7QS18GDvqK_ht010QqnI6PXAnePA/edit#gid=0
+
+const resource = fetchSpeaker();
+
+function SpeakersPanel() {
+  const speakers = resource.speakers.read();
+
+  return (
+    <>
+      <EuiFlexGrid
+        columns={3}
+        direction="row"
+        gutterSize="l"
+        className="xMargin"
+      >
         {speakers.map((speaker) => {
           return (
-            <EuiFlexItem>
+            <EuiFlexItem className="speaker-card">
               <EuiCard
                 aria-label={speaker.name}
-                image={<EuiImage size="m" src={speaker.avatar}></EuiImage>}
+                image={<EuiImage size="m" src={speaker.imageLink}></EuiImage>}
                 footer={speaker.shortBio}
                 description={
                   <>
@@ -29,7 +40,7 @@ export default class SpeakersPanel extends React.Component {
                       {speaker.team}
                     </EuiBadge>
                     <EuiBadge color="warning" iconType="globe">
-                      {speaker.basedIn}
+                      {speaker.location}
                     </EuiBadge>
                     <EuiBadge color="success" iconType="faceHappy">
                       {speaker.pronouns}
@@ -41,22 +52,9 @@ export default class SpeakersPanel extends React.Component {
             </EuiFlexItem>
           );
         })}
-      </>
-    );
-  }
-
-  render() {
-    return (
-      <>
-        <EuiFlexGrid
-          columns={3}
-          direction="row"
-          gutterSize="l"
-          className="xMargin"
-        >
-          {this.renderAllSpeakers()}
-        </EuiFlexGrid>
-      </>
-    );
-  }
+      </EuiFlexGrid>
+    </>
+  );
 }
+
+export default SpeakersPanel;

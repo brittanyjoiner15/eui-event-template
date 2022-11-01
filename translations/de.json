@@ -1,0 +1,19 @@
+{
+  "eventDetails": "Veranstaltungsdetails",
+  "speakers": "Vortragende",
+  "talks": "Vorträge",
+  "recordings": "Aufzeichnungen",
+  "faq": "FAQ/häufig gestellte Fragen",
+  "saveDate": "Folgende Sitzung speichern: {date}",
+  "signUp": "Einloggen für Updates",
+  "joinSlack": "Trete der Slack Gruppe bei",
+  "showDatesEDT": "zeige Uhrzeiten in Zeitzone EDT an",
+  "showDatesLocal": "zeige Uhrzeiten in lokaler Zeitzone an",
+  "session": "Sitzung",
+  "time": "Uhrzeit",
+  "title": "Titel",
+  "description": "Beschreibung",
+  "speaker": "Vortragender",
+  "genre": "Genre",
+  "actions": "Aktionen"
+}

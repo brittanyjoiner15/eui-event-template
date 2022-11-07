@@ -15,7 +15,7 @@ import Navbar from "./Navbar";
 import mixpanel from 'mixpanel-browser'; // importing mixpanel
 
 
-mixpanel.init('YOUR_TOKEN'); // initializing mixpanel
+// mixpanel.init('YOUR_TOKEN'); // initializing mixpanel
 
 function MainPage() {
   const [selectedTab, setSelectedTab] = useState("event");

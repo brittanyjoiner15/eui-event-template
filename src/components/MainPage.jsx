@@ -11,11 +11,21 @@ import BottomBar from "./BottomBar";
 import EventDetails from "./panels/EventDetails";
 import SpeakersPanel from "./panels/SpeakersPanel";
 import TalksPanel from "./panels/TalksPanel";
+import Navbar from "./Navbar";
+import mixpanel from 'mixpanel-browser'; // importing mixpanel
+
+
+// mixpanel.init('YOUR_TOKEN'); // initializing mixpanel
+
+function MainPage() {
+  const [selectedTab, setSelectedTab] = useState("event");
+
 import RecordingsPanel from "./panels/RecordingsPanel";
 import FAQsPanel from "./panels/FAQsPanel";
 import { Routes, Route } from "react-router-dom";
 import history from "../utilities/history";
 import { Suspense } from "react";
+
 
 import spinner from "../utilities/spinner.gif";
 
@@ -82,6 +92,13 @@ function MainPage(props) {
       },
     },
   ];
+
+
+  const onLogoClick = useCallback(() => {
+    onSelectedTabChanged("event");
+    // mixpanel.track("Rainbow logo clicked") // Tracking logo click event
+  }, []);
+
 
   return (
     <EuiPage paddingSize="none">

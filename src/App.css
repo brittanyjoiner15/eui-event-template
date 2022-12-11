@@ -88,7 +88,7 @@
 .speaker-card:hover {
     transform: scale(1.04);
     box-shadow: 0 0 11px rgba(236, 226, 226, 0.2);
-}    
+}
 
 h1.euiTitle{
    min-width:300px !important;
@@ -120,15 +120,15 @@ h1.euiTitle{
     transform: scale(1.5);
     margin-right: 1rem;
   }
-  
+
   .moon {
     color: pink !important;
   }
-  
+
   .sun {
     color: #FFFF00 !important;
   }
-  
+
   .ball {
     width: 20px;
     height: 20px;
@@ -139,15 +139,26 @@ h1.euiTitle{
     border-radius: 50%;
     transition: transform 0.2s linear;
   }
-  
+
   .preload{
     transition-duration: 0ms;
   }
-  
+
   .ball.light{
     transform: translateX(0px);
   }
-  
+
   .ball.dark{
     transform: translateX(24px);
+  }
+
+  @media (max-width: 440px) {
+  .euiFlexItem.euiFlexItem--flexGrowZero {
+      flex-grow: 1 !important;
+      -webkit-flex-grow: 1 !important;
+    }
+    .euiEmptyPrompt__main {
+      padding-right: 0 !important;
+      padding-left: 0 !important;
+    }
   }

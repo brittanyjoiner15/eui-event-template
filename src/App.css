@@ -152,10 +152,17 @@ h1.euiTitle{
     transform: translateX(24px);
   }
 
+  @media (max-width: 760px) {
+    .themeButton {
+      margin-left: 12px;
+    }
+  }
+
   @media (max-width: 440px) {
   .euiFlexItem.euiFlexItem--flexGrowZero {
       flex-grow: 1 !important;
       -webkit-flex-grow: 1 !important;
+      min-width: fit-content;
     }
     .euiEmptyPrompt__main {
       padding-right: 0 !important;

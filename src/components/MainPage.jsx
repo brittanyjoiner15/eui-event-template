@@ -96,10 +96,10 @@ function MainPage(props) {
   ];
 
 
-  //const onLogoClick = useCallback(() => {
-  //  onSelectedTabChanged("event");
-  //  // mixpanel.track("Rainbow logo clicked") // Tracking logo click event
-  //}, []);
+  const onLogoClick = useCallback(() => {
+    //onSelectedTabChanged("event");
+    // mixpanel.track("Rainbow logo clicked") // Tracking logo click event
+  }, []);
 
 
   return (

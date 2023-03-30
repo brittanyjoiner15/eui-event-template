@@ -17,10 +17,9 @@ import { fetchTalk } from "../../utilities/Api/fetchTalksDetails";
 
 const resource = fetchTalk();
 
-function TalksPanel() {
+function TalksPanel({t}) {
   const [showEst, setShowEst] = useState(false);
   const talksData = resource.talks.read();
-
   const renderShowEstButton = () => {
     return (
       <EuiPanel>
@@ -35,7 +34,7 @@ function TalksPanel() {
             }
           }}
         >
-          Show times in {showEst ? "Local" : "EDT"}
+          {t("Show times in")} {showEst ? "Local" : "EDT"}
         </EuiButton>
       </EuiPanel>
     );
@@ -44,7 +43,7 @@ function TalksPanel() {
   const columns = [
     {
       field: "date",
-      name: "Date",
+      name: t("Date"),
       render: (date) => (
         <EuiBadge color={date === "Sept 8th" ? "primary" : "success"}>
           {date.split("T")[0]}
@@ -53,7 +52,7 @@ function TalksPanel() {
     },
     {
       field: "time",
-      name: "Time",
+      name: t("Time"),
       render: (time) => (
         <>
           <EuiIcon type="clock" />
@@ -63,15 +62,27 @@ function TalksPanel() {
     },
     {
       field: "title",
-      name: "Title",
+      name:t( "Title"),
+      render: (title, item) => (
+        <span>
+          
+          {t(title)}
+        </span>
+      )
     },
     {
       field: "description",
-      name: "Description",
+      name: t("Description"),
+      render: (description, item) => (
+        <span>
+          
+          {t(description)}
+        </span>
+      )
     },
     {
       field: "speaker",
-      name: "Speaker",
+      name:t( "Speaker"),
       render: (speaker, speakersImageLink) => (
         <EuiFlexGroup direction="column">
           {renderSpeakers(speaker, speakersImageLink)}
@@ -80,13 +91,13 @@ function TalksPanel() {
     },
     {
       field: "genre",
-      name: "Genre",
+      name: t("Genre"),
       render: (genre) => (
-        <EuiBadge color={renderGenreTags(genre)}>{genre}</EuiBadge>
+        <EuiBadge color={renderGenreTags(genre)}>{t(genre)}</EuiBadge>
       ),
     },
     {
-      name: "Actions",
+      name: t("Actions"),
       actions: [
         {
           name: "Add to cal",
@@ -113,7 +124,8 @@ function TalksPanel() {
   };
   const renderSpeakers = (speakers, data) => {
     if (speakers.length > 1) {
-      return speakers.map((speakerName, index) => (
+      return speakers?.map((speakerName, index) => 
+      (
         <>
           <EuiFlexGroup>
             <EuiFlexItem className="speaker-info">
@@ -123,7 +135,7 @@ function TalksPanel() {
                 name={speakerName}
                 className="xMargin"
               />
-              <EuiText>{speakerName}</EuiText>
+              <EuiText>{t(speakerName)}</EuiText>
             </EuiFlexItem>
           </EuiFlexGroup>
         </>
@@ -139,7 +151,7 @@ function TalksPanel() {
                 name={speakers[0]}
                 className="xMargin"
               />
-              <EuiText>{speakers[0].name}</EuiText>
+              <EuiText>{t(speakers[0].name)}</EuiText>
             </EuiFlexItem>
           </EuiFlexGroup>
         </>

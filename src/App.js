@@ -1,11 +1,12 @@
 import { EuiProvider } from "@elastic/eui";
 import "@elastic/eui/dist/eui_theme_dark.css";
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import "./App.css";
 import MainPage from "./components/MainPage";
 import history from "./utilities/history";
 
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 function App() {
   React.useEffect(() => {
     // routes user to home page when clicking the rainbowCluster icon
@@ -22,13 +23,16 @@ function App() {
   }, []);
 
   const [theme, setTheme] = useState("dark");
+  const {t} = useTranslation(["common"]);
   const toggleTheme = () => {
     setTheme((curr) => (curr === "dark" ? "light" : "dark"));
     localStorage.setItem("theme", theme === "dark" ? "light" : "dark");
   };
 
   return (
+    <Suspense fallback={null}>
     <EuiProvider colorMode={theme}>
+
       <Helmet>
         {theme === "light" ? (
           <link
@@ -46,8 +50,12 @@ function App() {
           />
         )}
       </Helmet>
-      <MainPage theme={theme} toggleTheme={toggleTheme} />
+      
+      <MainPage theme={theme} toggleTheme={toggleTheme}
+      t={t}
+      />
     </EuiProvider>
+    </Suspense>
   );
 }
 

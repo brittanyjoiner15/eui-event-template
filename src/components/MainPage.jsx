@@ -1,12 +1,13 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import {
   EuiFlexGroup,
   EuiPage,
   EuiPageBody,
   EuiPageContent,
   EuiPageContentBody,
-  EuiSpacer,
+  EuiSpacer
 } from "@elastic/eui";
+
 import Navbar from "./Navbar";
 import BottomBar from "./BottomBar";
 import EventDetails from "./panels/EventDetails";
@@ -14,8 +15,8 @@ import SpeakersPanel from "./panels/SpeakersPanel";
 import TalksPanel from "./panels/TalksPanel";
 //import Navbar from "./Navbar";
 import mixpanel from 'mixpanel-browser'; // importing mixpanel
-
-
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 // mixpanel.init('YOUR_TOKEN'); // initializing mixpanel
 
 import RecordingsPanel from "./panels/RecordingsPanel";
@@ -26,12 +27,14 @@ import { Suspense } from "react";
 
 
 import spinner from "../utilities/spinner.gif";
-
+import Testpage from "../utilities/Testpage";
+import Select from "../utilities/Select";
 //function MainPage() {
 //  const [selectedTab, setSelectedTab] = useState("event");
 
 
 const Spinner = () => {
+  const {i18n, t } = useTranslation(["common"])
   return (
     <div>
       <img
@@ -45,17 +48,19 @@ const Spinner = () => {
         alt="Test..."
       />
       <h1 style={{ fontSize: "25px", textAlign: "center" }}>
-        Loading...Hold On😪
+        {t("Loading...Hold On")}😪
       </h1>
     </div>
   );
 };
 
 function MainPage(props) {
+   const {i18n, t } = useTranslation(["common"])
+
   const tabs = [
     {
       id: "event",
-      label: "Event Details",
+      label: t("Event Details"),
       onClick: () => {
         history.push("/events");
         window.location.reload();
@@ -63,7 +68,7 @@ function MainPage(props) {
     },
     {
       id: "speakers",
-      label: "Speakers",
+      label: t("Speakers"),
       onClick: () => {
         history.push("/speakers");
         window.location.reload();
@@ -71,7 +76,7 @@ function MainPage(props) {
     },
     {
       id: "talks",
-      label: "Talks",
+      label: t("Talks"),
       onClick: () => {
         history.push("/talks");
         window.location.reload();
@@ -79,7 +84,7 @@ function MainPage(props) {
     },
     {
       id: "recordings",
-      label: "Recordings",
+      label: t("Recordings"),
       onClick: () => {
         history.push("/recordings");
         window.location.reload();
@@ -87,14 +92,20 @@ function MainPage(props) {
     },
     {
       id: "faq",
-      label: "FAQs",
+      label: t("FAQs"),
       onClick: () => {
         history.push("/faq");
         window.location.reload();
       },
+      
     },
-  ];
+    {
+      id: "Changelanguage",
+      label: <Select />,
+    },
 
+    
+  ];
 
   const onLogoClick = useCallback(() => {
     //onSelectedTabChanged("event");
@@ -105,11 +116,13 @@ function MainPage(props) {
   return (
     <EuiPage paddingSize="none">
       <EuiFlexGroup className="eui-fullHeight">
+       
         <EuiPageBody panelled>
           <Navbar
             tabs={tabs}
             theme={props.theme}
             toggleTheme={props.toggleTheme}
+            t={props.t}
           />
           <EuiPageContent
             hasBorder={false}
@@ -121,14 +134,19 @@ function MainPage(props) {
             horizontalPosition="center"
           >
             <EuiPageContentBody>
+        
               <Routes>
-                <Route path="/" element={<EventDetails />} />
-                <Route path="/events" element={<EventDetails />} />
+                <Route path="/" element={<EventDetails 
+              t={props.t}
+                />} />
+                <Route path="/events" element={<EventDetails 
+                  t={props.t}
+                />} />
                 <Route
                   path="/speakers"
                   element={
                     <Suspense fallback={<Spinner />}>
-                      <SpeakersPanel />
+                      <SpeakersPanel   t={props.t}/>
                     </Suspense>
                   }
                 />
@@ -136,17 +154,26 @@ function MainPage(props) {
                   path="/talks"
                   element={
                     <Suspense fallback={<Spinner />}>
-                      <TalksPanel />
+                      <TalksPanel  t={props.t}/>
                     </Suspense>
                   }
                 />
-                <Route path="/recordings" element={<RecordingsPanel />} />
-                <Route path="/faq" element={<FAQsPanel />} />
+                <Route path="/recordings" element={<RecordingsPanel 
+                 t={props.t}
+                />} />
+                <Route path="/faq" element={<FAQsPanel
+                  t={props.t} />} />
+                  <Route 
+                  path="/test"
+                  element={<Testpage />}
+                  />
               </Routes>
             </EuiPageContentBody>
             <EuiSpacer size="l" />
           </EuiPageContent>
-          <BottomBar theme={props.theme} />
+          <BottomBar theme={props.theme}
+          t ={props.t}
+          />
         </EuiPageBody>
       </EuiFlexGroup>
     </EuiPage>

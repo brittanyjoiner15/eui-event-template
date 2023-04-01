@@ -13,9 +13,9 @@ import { fetchSpeaker } from "../../utilities/Api/fetchSpeakerDetails";
 
 const resource = fetchSpeaker();
 
-function SpeakersPanel() {
+function SpeakersPanel({t}) {
   const speakers = resource.speakers.read();
-
+  console.log(speakers)
   return (
     <>
       <EuiFlexGrid
@@ -24,30 +24,30 @@ function SpeakersPanel() {
         gutterSize="l"
         className="xMargin"
       >
-        {speakers.map((speaker) => {
+        {speakers?.map((speaker) => {
           return (
             <EuiFlexItem className="speaker-card">
               <EuiCard
                 aria-label={speaker.name}
                 image={<EuiImage size="m" src={speaker.imageLink}></EuiImage>}
-                footer={speaker.shortBio}
+                footer={t(speaker.shortBio)}
                 description={
                   <>
                     <EuiText color="success">
-                      <strong>{speaker.title}</strong>
+                      <strong>{t(speaker.title)}</strong>
                     </EuiText>
                     <EuiBadge color="primary" iconType="branch">
-                      {speaker.team}
+                      {t(speaker.team)}
                     </EuiBadge>
                     <EuiBadge color="warning" iconType="globe">
-                      {speaker.location}
+                      {t(speaker.location)}
                     </EuiBadge>
                     <EuiBadge color="success" iconType="faceHappy">
-                      {speaker.pronouns}
+                      {t(speaker.pronouns)}
                     </EuiBadge>
                   </>
                 }
-                title={speaker.name}
+                title={t(speaker.name)}
               />
             </EuiFlexItem>
           );

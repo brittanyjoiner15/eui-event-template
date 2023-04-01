@@ -13,3 +13,4 @@ export const useBelowL = () => useIsWithinBreakpoints(["xs", "l"], true);
 export const useAboveL = () => useIsWithinBreakpoints(["l", "xl"], true);
 export const useIsXl = () => useIsWithinBreakpoints(["xl", "xl"], true);
 export const useBelowXl = () => useIsWithinBreakpoints(["xs", "xl"], true);
+export const useTranslation = () => useTranslation(["common"])

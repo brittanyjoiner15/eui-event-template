@@ -1,6 +1,6 @@
 export const faqs = [
   {
-    question: "Who is this event for? ",
+    question: "Who is this event for?",
     detail: "Some plain text details",
     answer: "This event is for everyone!",
   },

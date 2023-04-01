@@ -30,12 +30,12 @@ export default (props) => {
   const [isValidEmail, setIsValidEmail] = useState(false); // valid email or not
   const [loading, setIsLoading] = useState(false); // loading screen to show or not
   const [toasts, setToasts] = useState([]); // toast messages we can append in here, they will show top of 'em
-
-  const addToastHandler = () => {
+ 
+  const addToastHandler = (t) => {
     const toast = {
-      title: "Successfully Signed Up",
-      color: "success",
-      text: <p>Thanks for registering!</p>,
+      title: t("Successfully Signed Up"),
+      color: t("success"),
+      text: <p>{t("Thanks for registering!")}</p>,
     };
     setToasts(toasts.concat(toast));
   };
@@ -79,7 +79,7 @@ export default (props) => {
           "Content-Type": "text/plain;charset=utf-8",
         },
       });
-      addToastHandler();
+      addToastHandler(props.t);
     } catch (err) {
       console.log(err);
     }
@@ -110,24 +110,24 @@ export default (props) => {
 
   const formSample = (
     <EuiForm id={modalFormId} component="form">
-      <EuiFormRow label="Name" isInvalid={!isValidName} error={errors[0]}>
+      <EuiFormRow label={props.t("Name")} isInvalid={!isValidName} error={errors[0]}>
         <EuiFieldText
           name="name"
           onChange={inputHandler}
           value={user.name}
-          placeholder="Your Full Name"
+          placeholder={props.t("Your Full Name")}
           autoComplete="off"
           isInvalid={!isValidName}
         />
       </EuiFormRow>
 
-      <EuiFormRow label="Email" isInvalid={!isValidEmail} error={errors[1]}>
+      <EuiFormRow label={props.t("Email")} isInvalid={!isValidEmail} error={errors[1]}>
         <EuiFieldText
           name="email"
           onChange={inputHandler}
           value={user.email}
           autoComplete="off"
-          placeholder="Your Email"
+          placeholder={props.t("Your Email")}
           isInvalid={!isValidEmail}
         />
       </EuiFormRow>
@@ -143,12 +143,12 @@ export default (props) => {
           <>
             <EuiModalHeader>
               <EuiModalHeaderTitle>
-                <h1>Sending Over The Details...😍</h1>
+                <h1>{props.t("Sending Over The Details")}...😍</h1>
               </EuiModalHeaderTitle>
             </EuiModalHeader>
 
             <EuiModalBody>
-              <h2>👋🏻 {user.name}, wish you a great day!</h2>
+              <h2>👋🏻 {user.name}, {props.t("wish you a great day!")}</h2>
             </EuiModalBody>
 
             <EuiModalFooter>
@@ -159,14 +159,14 @@ export default (props) => {
           <>
             <EuiModalHeader>
               <EuiModalHeaderTitle>
-                <h1>Sign Up</h1>
+                <h1>{props.t("Sign Up")}</h1>
               </EuiModalHeaderTitle>
             </EuiModalHeader>
 
             <EuiModalBody>{formSample}</EuiModalBody>
 
             <EuiModalFooter>
-              <EuiButtonEmpty onClick={closeModal}>Cancel</EuiButtonEmpty>
+              <EuiButtonEmpty onClick={closeModal}>{props.t("Cancel")}</EuiButtonEmpty>
 
               <EuiButton
                 type="submit"
@@ -175,7 +175,7 @@ export default (props) => {
                 onClick={formHandler}
                 fill
               >
-                Save My Spot 🙌🏻
+                {props.t("Save My Spot")} 🙌🏻
               </EuiButton>
             </EuiModalFooter>
           </>
@@ -183,7 +183,6 @@ export default (props) => {
       </EuiModal>
     );
   }
-
   return (
     <>
       <EuiBottomBar position="static" style={{ backgroundColor: `${getColorTheme("bb_bgColor", props.theme)}`,}}>
@@ -191,12 +190,12 @@ export default (props) => {
             <EuiFlexItem grow={false} >
               <EuiText color={getColorTheme("text", props.theme)}>
                 <h5>
-                  Hosted by Dunder Mifflin, Parks & Recreation Department
+                  {props.t("Hosted by Dunder Mifflin, Parks & Recreation Department")}
                 </h5>
               </EuiText>
               <EuiText color={getColorTheme("text", props.theme)}>
               <h6>
-                Group for all paper enthusiasts and bureaucrats
+                {props.t("Group for all paper enthusiasts and bureaucrats")}
               </h6>  
               </EuiText>
             </EuiFlexItem>
@@ -241,7 +240,7 @@ export default (props) => {
             <EuiFlexGroup>
               <EuiFlexItem grow={false}>
                 <EuiButton color="success" fill onClick={showModal}>
-                  Sign up for updates
+                  {props.t("Sign up for updates")}
                 </EuiButton>
                 {modal}
                 <EuiGlobalToastList
@@ -252,7 +251,7 @@ export default (props) => {
               </EuiFlexItem>
               <EuiFlexItem grow={false}>
                 <EuiButton color="primary" fill href="#" target={"_blank"}>
-                  Join the slack group
+                  {props.t("Join the slack group")}
                 </EuiButton>
               </EuiFlexItem>
             </EuiFlexGroup>

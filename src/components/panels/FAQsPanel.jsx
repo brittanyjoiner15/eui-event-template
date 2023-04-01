@@ -8,6 +8,11 @@ import {
   useGeneratedHtmlId,
   EuiTitle,
   EuiTextColor,
+  EuiContext,
+  EuiMark,
+  useEuiI18n,
+  EuiButton,
+  EuiI18n
 } from "@elastic/eui";
 import { faqs } from "../../data/faqs";
 import { useIsXs, useIsS, useIsM } from "../../hooks/responsive";
@@ -56,17 +61,20 @@ const FaqAccordionRow = ({ question, detail, answer }) => {
   );
 }
 
-export default function FAQsPanel() {
-  
+export default function FAQsPanel({t}) {
+
+
+
   return (
     <>
+
       <EuiFlexGroup
         className="xMargin"
         direction="column"
       >
         <div style={{ maxWidth: '1200px' }}>
           <EuiFlexItem>
-            {faqs.map(({ question, detail, answer }, i) => {
+            {faqs?.map(({ question, detail, answer }, i) => {
               const FunctionalAnswer = () => answer;
               const content = typeof answer === "string" ? `${answer}` : <FunctionalAnswer />;
 
@@ -74,9 +82,9 @@ export default function FAQsPanel() {
                 <Fragment key={question}>
                   {i > 0 && <EuiSpacer />}
                   <FaqAccordionRow
-                    question={question}
-                    detail={detail}
-                    answer={content}
+                    question={t(question)}
+                    detail={t(detail)}
+                    answer={t(content)}
                   />
                 </Fragment>
               );
@@ -87,3 +95,4 @@ export default function FAQsPanel() {
     </>
   );
 };
+//Use i18n of elastic UI ?
